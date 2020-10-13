@@ -1,0 +1,113 @@
+@import "fonts";
+@import "variables";
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#atom {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.atom-logo {
+  display: inline-block;
+  svg {
+    display: block;
+  }
+  &_blue {
+    fill: $blue;
+  }
+  &_white {
+    fill: $white;
+  }
+}
+
+.atom-inner {
+  flex: 1 0 auto;
+}
+
+nav {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 16px;
+  a {
+    font-family: "TT Norms", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: $white;
+    text-decoration: none;
+    line-height: 1.2;
+    letter-spacing: .5px;
+  }
+  .nav-link_separator {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid $white;
+    transform: translateY(6px);
+    margin: 0 40px;
+  }
+}
+
+.burger {
+  cursor: pointer;
+  margin-left: 48px;
+  &:hover {
+    .burger-line_1 {
+      width: 16px;
+    }
+    .burger-line_3 {
+      width: 32px;
+    }
+  }
+  .burger-line {
+    background: $white;
+    height: 3px;
+    transition: width 350ms ease-in-out;
+    &_1 {
+      width: 31px;
+      margin-bottom: 6px;
+    }
+    &_2 {
+      width: 24px;
+      margin-bottom: 6px;
+    }
+    &_3 {
+      width: 16px;
+    }
+  }
+}
+
+header {
+  padding: 50px 0;
+  .atom-logo {
+    margin-right: 84px;
+  }
+  .header-inner {
+    display: flex;
+  }
+}
+
+footer {
+  background: $white;
+  flex: 0 0 auto;
+  padding: 70px 0 90px 0;
+}
+
+section {
+  &.home {
+    background: $blue;
+    min-height: 100vh;
+  }
+}

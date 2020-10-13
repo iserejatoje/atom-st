@@ -1,0 +1,35 @@
+{
+  "name": "atom-st",
+  "version": "1.0.0",
+  "description": "`Верстка сайта для веб-студии Atom, Кемерово`",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iserejatoje/atom-st.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iserejatoje/atom-st/issues"
+  },
+  "homepage": "https://github.com/iserejatoje/atom-st#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-changed": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-newer": "^1.4.0",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "^4.1.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-uglify-es": "^2.0.0",
+    "jquery": "^3.5.1"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
