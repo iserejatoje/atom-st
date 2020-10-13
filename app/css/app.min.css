@@ -252,6 +252,7 @@ nav {
   left: 0;
   right: 0;
   top: 0;
+  z-index: 1;
   padding: 50px 0; }
   .header .contact-icons {
     padding-top: 10px; }
@@ -325,9 +326,44 @@ nav {
   .logo-link svg {
     display: block; }
 
+.second-nav {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 25px;
+  grid-auto-flow: column;
+  grid-row-gap: 30px;
+  padding-top: 15px; }
+  .second-nav a {
+    font-size: 18px;
+    font-family: "TT Norms", sans-serif;
+    color: #222b3d;
+    line-height: 1.2;
+    font-weight: 500;
+    text-decoration: none;
+    -webkit-transition: color 250ms ease;
+    -o-transition: color 250ms ease;
+    transition: color 250ms ease;
+    letter-spacing: 0.5px; }
+    .second-nav a.active, .second-nav a:hover {
+      color: #0b49c7; }
+
+#map {
+  background: #f9f9f9;
+  min-height: 700px;
+  width: 100%; }
+  #map .ymaps-layers-pane {
+    -webkit-filter: grayscale(100%); }
+
 footer {
   background: #fff;
   padding: 70px 0 90px 0; }
+  footer .footer-inner {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: minmax(auto, 360px) minmax(auto, 457px) auto;
+    grid-template-columns: minmax(auto, 360px) minmax(auto, 457px) auto; }
   footer .logo-link svg {
     fill: #0b49c7; }
   footer .contact-icons a:hover svg {

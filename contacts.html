@@ -5,9 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Контакты &mdash; Atom web studio, coming soon..</title>
+    <title>Contacts &mdash; Atom web studio</title>
     <link rel="stylesheet" href="app/css/normalize.css">
     <link rel="stylesheet" href="app/css/app.min.css">
+    <link rel="preconnect" href="//api-maps.yandex.ru">
+    <link rel="dns-prefetch" href="//api-maps.yandex.ru">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div id="atom">
@@ -24,11 +27,11 @@
                                 </svg>
                             </a>
                             <nav>
-                                <a class="nav-link" href="/company">Компания</a>
+                                <a class="nav-link" href="">Компания</a>
                                 <span class="nav-link_separator"></span>
-                                <a class="nav-link" href="/service">Услуги</a>
+                                <a class="nav-link" href="">Услуги</a>
                                 <span class="nav-link_separator"></span>
-                                <a class="nav-link" href="/portfolio">Портфолио</a>
+                                <a class="nav-link" href="">Портфолио</a>
                                 <div class="burger">
                                     <div class="burger-line burger-line_1"></div>
                                     <div class="burger-line burger-line_2"></div>
@@ -53,36 +56,59 @@
                 </header>
             </section>
 
+            <section class="map">
+                <div id="map"></div>
+            </section>
+
         </div>
         <footer>
             <div class="container">
-                <div class="logo">
-                    <a href="homepage.html" class="logo-link">
-                        <svg width="155" height="64" class="atom-logo atom-logo_blue">
-                            <use xlink:href="app/img/sprite.svg#logo"></use>
-                        </svg>
-                    </a>
-                </div>
+                <div class="footer-inner">
+                    <div class="column column_1">
+                        <div class="logo">
+                            <a href="homepage.html" class="logo-link">
+                                <svg width="155" height="64" class="atom-logo atom-logo_blue">
+                                    <use xlink:href="app/img/sprite.svg#logo"></use>
+                                </svg>
+                            </a>
+                        </div>
 
-                <div class="atom-copyright">
-                    © 2015-2020 ATOM Studio. <br>Все права защищены.
-                </div>
-                <div class="contact-icons">
-                    <a href="" class="wtsp">
-                        <svg width="33" height="33">
-                            <use xlink:href="app/img/sprite.svg#telegram"></use>
-                        </svg>
-                    </a>
-                    <a href="" class="tlgr">
-                        <svg width="33" height="33">
-                            <use xlink:href="app/img/sprite.svg#whatsapp"></use>
-                        </svg>
-                    </a>
+                        <div class="atom-copyright">
+                            © 2015-2020 ATOM Studio. <br>Все права защищены.
+                        </div>
+
+                        <div class="contact-icons">
+                            <a href="" class="wtsp">
+                                <svg width="33" height="33">
+                                    <use xlink:href="app/img/sprite.svg#telegram"></use>
+                                </svg>
+                            </a>
+                            <a href="" class="tlgr">
+                                <svg width="33" height="33">
+                                    <use xlink:href="app/img/sprite.svg#whatsapp"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column column_2">
+                        <div class="second-nav">
+                            <div class="second-nav_item"><a href="">Компания</a></div>
+                            <div class="second-nav_item"><a href="">Услуги</a></div>
+                            <div class="second-nav_item"><a href="">Портфолио</a></div>
+                            <div class="second-nav_item"><a href="">Блог</a></div>
+                            <div class="second-nav_item"><a href="">Контакты</a></div>
+                        </div>
+                    </div>
+                    <div class="column column_3">
+
+                    </div>
                 </div>
             </div>
 
         </footer>
 
     </div>
+
+    <script src="app/js/app.min.js"></script>
 </body>
 </html>
