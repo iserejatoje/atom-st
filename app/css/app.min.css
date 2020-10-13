@@ -135,7 +135,31 @@ body {
   height: 100%; }
 
 body {
-  padding-top: 164px; }
+  padding-top: 164px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+#atom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-height: 100%; }
+
+.atom-inner {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto; }
+
+footer {
+  background: #fff;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 70px 0 90px 0; }
 
 nav {
   display: -webkit-box;
@@ -164,16 +188,17 @@ nav {
 
 .burger {
   cursor: pointer;
-  margin-left: 48px; }
+  margin-left: 48px;
+  width: 31px; }
   .burger:hover .burger-line_1 {
     width: 16px; }
   .burger:hover .burger-line_3 {
     width: 32px; }
   .burger .burger-line {
     height: 3px;
-    -webkit-transition: width 350ms ease-in-out;
-    -o-transition: width 350ms ease-in-out;
-    transition: width 350ms ease-in-out; }
+    -webkit-transition: width 350ms ease;
+    -o-transition: width 350ms ease;
+    transition: width 350ms ease; }
     .burger .burger-line_1 {
       width: 31px;
       margin-bottom: 6px; }
@@ -183,43 +208,63 @@ nav {
     .burger .burger-line_3 {
       width: 16px; }
 
+.atom-copyright {
+  font-size: 18px;
+  font-family: "TT Norms", sans-serif;
+  font-weight: 400;
+  color: #c8cbd3;
+  line-height: 1.5;
+  margin: 24px 0;
+  letter-spacing: .4px; }
+
+.atom-phone {
+  font-family: "TT Norms", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 40px;
+  -webkit-transition: opacity 300ms ease-in-out;
+  -o-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out; }
+  .atom-phone:hover {
+    opacity: .8; }
+
+.contact-icons {
+  margin-left: auto;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .contact-icons .wtsp {
+    margin-right: 30px; }
+  .contact-icons a {
+    display: inline-block;
+    text-decoration: none; }
+    .contact-icons a svg {
+      -webkit-transition: fill 300ms ease;
+      -o-transition: fill 300ms ease;
+      transition: fill 300ms ease; }
+
 .header {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   padding: 50px 0; }
-  .header .contacts {
-    margin-left: auto;
-    padding-top: 10px;
-    display: -webkit-inline-box;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    .header .contacts .wtsp {
-      margin-right: 30px; }
-    .header .contacts svg {
-      fill: #fff; }
-    .header .contacts a {
-      display: inline-block;
-      text-decoration: none;
-      -webkit-transition: opacity 300ms ease;
-      -o-transition: opacity 300ms ease;
-      transition: opacity 300ms ease; }
-      .header .contacts a:hover {
-        opacity: .75; }
-  .header .phone-link {
-    font-family: "TT Norms", sans-serif;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 500;
-    margin-right: 40px; }
+  .header .contact-icons {
+    padding-top: 10px; }
   .header .atom-logo {
     margin-right: 84px; }
   .header-light {
     background: #fff; }
+    .header-light .atom-phone {
+      color: #222b3d; }
+    .header-light .contact-icons a:hover svg {
+      fill: #0b49c7; }
+    .header-light .contact-icons a svg {
+      fill: #dddfe5; }
     .header-light .nav-link_separator {
       border: 2px solid #0b49c7; }
     .header-light .burger-line {
@@ -237,6 +282,10 @@ nav {
         width: 100%; }
   .header-dark {
     background: #0b49c7; }
+    .header-dark .atom-phone {
+      color: #fff; }
+    .header-dark .contact-icons svg {
+      fill: #fff; }
     .header-dark .nav-link_separator {
       border: 2px solid #fff; }
     .header-dark .burger-line {
@@ -271,11 +320,20 @@ nav {
               transform: translateY(5px);
       width: 0; }
 
+.logo-link {
+  display: inline-block; }
+  .logo-link svg {
+    display: block; }
+
 footer {
   background: #fff;
   padding: 70px 0 90px 0; }
   footer .logo-link svg {
     fill: #0b49c7; }
+  footer .contact-icons a:hover svg {
+    fill: #0b49c7; }
+  footer .contact-icons a svg {
+    fill: #dddfe5; }
 
 section.home {
   background: #0b49c7;

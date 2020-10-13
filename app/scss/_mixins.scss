@@ -1,0 +1,14 @@
+@mixin social-icons {
+  .contact-icons {
+    a {
+      &:hover {
+        svg {
+          fill: $blue;
+        }
+      }
+      svg {
+        fill: $social-icon;
+      }
+    }
+  }
+}

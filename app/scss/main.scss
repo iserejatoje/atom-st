@@ -1,5 +1,6 @@
 @import "fonts";
 @import "variables";
+@import "mixins";
 
 .container {
   max-width: $container-width;
@@ -15,12 +16,30 @@ body {
 
 body {
   padding-top: 164px;
+  box-sizing: border-box;
+}
+
+#atom {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.atom-inner {
+  flex: 1 0 auto;
+}
+
+footer {
+  background: $white;
+  flex: 0 0 auto;
+  padding: 70px 0 90px 0;
 }
 
 nav {
   display: flex;
   align-items: flex-start;
   padding-top: 16px;
+
   a {
     font-family: "TT Norms", sans-serif;
     font-weight: 500;
@@ -29,6 +48,7 @@ nav {
     line-height: 1.2;
     letter-spacing: .5px;
   }
+
   .nav-link_separator {
     width: 8px;
     height: 8px;
@@ -42,27 +62,74 @@ nav {
 .burger {
   cursor: pointer;
   margin-left: 48px;
+  width: 31px;
+
   &:hover {
     .burger-line_1 {
       width: 16px;
     }
+
     .burger-line_3 {
       width: 32px;
     }
   }
+
   .burger-line {
     height: 3px;
-    transition: width 350ms ease-in-out;
+    transition: width 350ms ease;
+
     &_1 {
       width: 31px;
       margin-bottom: 6px;
     }
+
     &_2 {
       width: 24px;
       margin-bottom: 6px;
     }
+
     &_3 {
       width: 16px;
+    }
+  }
+}
+
+.atom-copyright {
+  font-size: 18px;
+  font-family: "TT Norms", sans-serif;
+  font-weight: 400;
+  color: $gray;
+  line-height: 1.5;
+  margin: 24px 0;
+  letter-spacing: .4px;
+}
+
+.atom-phone {
+  font-family: "TT Norms", sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  text-decoration: none;
+  margin-right: 40px;
+  transition: opacity 300ms ease-in-out;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.contact-icons {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+
+  .wtsp {
+    margin-right: 30px;
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    svg {
+      transition: fill 300ms ease;
     }
   }
 }
@@ -73,90 +140,104 @@ nav {
   right: 0;
   top: 0;
   padding: 50px 0;
-  .contacts {
-    margin-left: auto;
+
+  .contact-icons {
     padding-top: 10px;
-    display: inline-flex;
-    align-items: center;
-    .wtsp {
-      margin-right: 30px;
-    }
-    svg {
-      fill: $white;
-    }
-    a {
-      display: inline-block;
-      text-decoration: none;
-      transition: opacity 300ms ease;
-      &:hover {
-        opacity: .75;
-      }
-    }
   }
-  .phone-link {
-    font-family: "TT Norms", sans-serif;
-    color: $white;
-    font-size: 18px;
-    font-weight: 500;
-    margin-right: 40px;
-  }
+
   .atom-logo {
     margin-right: 84px;
   }
+
+  // Белый фон, сине-черный текст
+
   &-light {
     background: $white;
+
+    .atom-phone {
+      color: $dark-shade;
+    }
+
+    @include social-icons;
+
     .nav-link_separator {
       border: 2px solid $blue;
     }
+
     .burger-line {
       background: $blue;
     }
+
     .atom-logo {
       display: inline-block;
+
       svg {
         display: block;
         fill: $blue;
       }
     }
+
     nav {
       .nav-link {
         color: $dark-shade;
+
         &:after {
           background: transparentize($dark-shade, .5);
         }
+
         &:hover:after {
           width: 100%;
         }
       }
     }
   }
+
+  // Темный фон, светлый текст
   &-dark {
     background: $blue;
+
+    .atom-phone {
+      color: $white;
+    }
+
+    .contact-icons {
+      svg {
+        fill: $white;
+      }
+    }
+
     .nav-link_separator {
       border: 2px solid $white;
     }
+
     .burger-line {
       background: $white;
     }
+
     .atom-logo {
       display: inline-block;
+
       svg {
         display: block;
         fill: $white;
       }
     }
+
     nav {
       .nav-link {
         color: $white;
+
         &:after {
           background: transparentize($white, .5);
         }
+
         &:hover:after {
           width: 100%;
         }
       }
     }
   }
+
   .header-inner {
     display: flex;
     align-items: flex-start;
@@ -172,6 +253,13 @@ nav {
   }
 }
 
+.logo-link {
+  display: inline-block;
+  svg {
+    display: block;
+  }
+}
+
 footer {
   background: $white;
   padding: 70px 0 90px 0;
@@ -181,6 +269,8 @@ footer {
       fill: $blue;
     }
   }
+
+  @include social-icons;
 }
 
 section {
