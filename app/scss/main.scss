@@ -9,6 +9,13 @@
   padding-right: $container-padding;
 }
 
+.container-wild {
+  max-width: $container-wild-width;
+  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
 html,
 body {
   height: 100%;
@@ -104,18 +111,6 @@ nav {
   letter-spacing: .4px;
 }
 
-.atom-phone {
-  font-family: "TT Norms", sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  text-decoration: none;
-  margin-right: 40px;
-  transition: opacity 300ms ease-in-out;
-  &:hover {
-    opacity: .8;
-  }
-}
-
 .contact-icons {
   margin-left: auto;
   display: inline-flex;
@@ -134,6 +129,40 @@ nav {
   }
 }
 
+.atom-phone {
+  font-family: "TT Norms", sans-serif;
+  text-decoration: none;
+  transition: opacity 300ms ease-in-out;
+  position: relative;
+
+  &.striped {
+    &:before {
+      content: '';
+      position: absolute;
+      width: 48px;
+      height: 11px;
+      z-index: 1;
+      display: block;
+      background: $white;
+      transform: rotate(45deg);
+      top: 38px;
+      left: -24px;
+      pointer-events: none;
+    }
+    &:after {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 72px;
+      height: 81px;
+      top: 4px;
+      z-index: 2;
+      background: url(../svg/stripe.svg) no-repeat;
+      pointer-events: none;
+    }
+  }
+}
+
 .header {
   position: fixed;
   left: 0;
@@ -141,6 +170,17 @@ nav {
   top: 0;
   z-index: 1;
   padding: 50px 0;
+
+  .atom-phone {
+    font-size: 22px;
+    font-weight: 500;
+    margin-right: 40px;
+
+    &:hover {
+      opacity: .75;
+    }
+
+  }
 
   .contact-icons {
     padding-top: 10px;
@@ -249,6 +289,7 @@ nav {
       display: block;
       transition: width 300ms ease;
       transform: translateY(5px);
+      will-change: transform;
       width: 0;
     }
   }
@@ -261,7 +302,7 @@ nav {
   }
 }
 
-.second-nav {
+.footer-nav {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-column-gap: 25px;
@@ -303,6 +344,17 @@ footer {
   .footer-inner {
     display: grid;
     grid-template-columns: minmax(auto, 360px) minmax(auto, 457px) auto;
+
+    .column_3 {
+      text-align: right;
+    }
+  }
+
+  .atom-phone {
+    font-size: 48px;
+    color: $light-gray;
+    font-weight: bold;
+    line-height: 1.083;
   }
 
   .logo-link {
@@ -318,5 +370,70 @@ section {
   &.home {
     background: $blue;
     min-height: 100vh;
+  }
+}
+
+.button {
+  font-weight: bold;
+  font-family: "TT Norms", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  line-height: 1.2;
+  border-radius: 30px;
+  border: none;
+  padding: 21px 35px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  .up,
+  .down {
+    position: relative;
+    transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
+    will-change: top;
+  }
+  .up {
+    top: 0;
+    opacity: 1;
+  }
+  .down {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 80px;
+    width: 100%;
+  }
+  &_blue {
+    background: $blue;
+    color: $white;
+    font-size: 15px;
+  }
+  &:hover {
+    .up {
+      top: -60px;
+      opacity: 0;
+    }
+    .down {
+      top: 21px;
+      opacity: 1;
+    }
+  }
+}
+
+.atom-address {
+  font-size: 18px;
+  font-family: "TT Norms", sans-serif;
+  color: $dark-shade;
+  line-height: 1.667;
+  text-align: right;
+  margin-top: 22px;
+  margin-bottom: 48px;
+  span {
+    border-bottom: 3px solid $blue;
+    display: inline-block;
+    padding-bottom: 4px;
+    letter-spacing: 0.2px;
   }
 }

@@ -125,6 +125,12 @@
   font-style: normal; }
 
 .container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.container-wild {
   max-width: 1740px;
   margin: 0 auto;
   padding-left: 15px;
@@ -217,18 +223,6 @@ nav {
   margin: 24px 0;
   letter-spacing: .4px; }
 
-.atom-phone {
-  font-family: "TT Norms", sans-serif;
-  font-size: 22px;
-  font-weight: 500;
-  text-decoration: none;
-  margin-right: 40px;
-  -webkit-transition: opacity 300ms ease-in-out;
-  -o-transition: opacity 300ms ease-in-out;
-  transition: opacity 300ms ease-in-out; }
-  .atom-phone:hover {
-    opacity: .8; }
-
 .contact-icons {
   margin-left: auto;
   display: -webkit-inline-box;
@@ -247,6 +241,38 @@ nav {
       -o-transition: fill 300ms ease;
       transition: fill 300ms ease; }
 
+.atom-phone {
+  font-family: "TT Norms", sans-serif;
+  text-decoration: none;
+  -webkit-transition: opacity 300ms ease-in-out;
+  -o-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  position: relative; }
+  .atom-phone.striped:before {
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 11px;
+    z-index: 1;
+    display: block;
+    background: #fff;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 38px;
+    left: -24px;
+    pointer-events: none; }
+  .atom-phone.striped:after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 72px;
+    height: 81px;
+    top: 4px;
+    z-index: 2;
+    background: url(../svg/stripe.svg) no-repeat;
+    pointer-events: none; }
+
 .header {
   position: fixed;
   left: 0;
@@ -254,6 +280,12 @@ nav {
   top: 0;
   z-index: 1;
   padding: 50px 0; }
+  .header .atom-phone {
+    font-size: 22px;
+    font-weight: 500;
+    margin-right: 40px; }
+    .header .atom-phone:hover {
+      opacity: .75; }
   .header .contact-icons {
     padding-top: 10px; }
   .header .atom-logo {
@@ -319,6 +351,7 @@ nav {
       -webkit-transform: translateY(5px);
           -ms-transform: translateY(5px);
               transform: translateY(5px);
+      will-change: transform;
       width: 0; }
 
 .logo-link {
@@ -326,7 +359,7 @@ nav {
   .logo-link svg {
     display: block; }
 
-.second-nav {
+.footer-nav {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr 1fr;
@@ -335,7 +368,7 @@ nav {
   grid-auto-flow: column;
   grid-row-gap: 30px;
   padding-top: 15px; }
-  .second-nav a {
+  .footer-nav a {
     font-size: 18px;
     font-family: "TT Norms", sans-serif;
     color: #222b3d;
@@ -346,7 +379,7 @@ nav {
     -o-transition: color 250ms ease;
     transition: color 250ms ease;
     letter-spacing: 0.5px; }
-    .second-nav a.active, .second-nav a:hover {
+    .footer-nav a.active, .footer-nav a:hover {
       color: #0b49c7; }
 
 #map {
@@ -364,6 +397,13 @@ footer {
     display: grid;
     -ms-grid-columns: minmax(auto, 360px) minmax(auto, 457px) auto;
     grid-template-columns: minmax(auto, 360px) minmax(auto, 457px) auto; }
+    footer .footer-inner .column_3 {
+      text-align: right; }
+  footer .atom-phone {
+    font-size: 48px;
+    color: #dddfe5;
+    font-weight: bold;
+    line-height: 1.083; }
   footer .logo-link svg {
     fill: #0b49c7; }
   footer .contact-icons a:hover svg {
@@ -374,3 +414,59 @@ footer {
 section.home {
   background: #0b49c7;
   min-height: 100vh; }
+
+.button {
+  font-weight: bold;
+  font-family: "TT Norms", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  line-height: 1.2;
+  border-radius: 30px;
+  border: none;
+  padding: 21px 35px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden; }
+  .button .up,
+  .button .down {
+    position: relative;
+    -webkit-transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
+    -o-transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
+    transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
+    will-change: top; }
+  .button .up {
+    top: 0;
+    opacity: 1; }
+  .button .down {
+    position: absolute;
+    display: block;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    top: 80px;
+    width: 100%; }
+  .button_blue {
+    background: #0b49c7;
+    color: #fff;
+    font-size: 15px; }
+  .button:hover .up {
+    top: -60px;
+    opacity: 0; }
+  .button:hover .down {
+    top: 21px;
+    opacity: 1; }
+
+.atom-address {
+  font-size: 18px;
+  font-family: "TT Norms", sans-serif;
+  color: #222b3d;
+  line-height: 1.667;
+  text-align: right;
+  margin-top: 22px;
+  margin-bottom: 48px; }
+  .atom-address span {
+    border-bottom: 3px solid #0b49c7;
+    display: inline-block;
+    padding-bottom: 4px;
+    letter-spacing: 0.2px; }
