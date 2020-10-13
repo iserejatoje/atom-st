@@ -431,9 +431,9 @@ section.home {
   .button .up,
   .button .down {
     position: relative;
-    -webkit-transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
-    -o-transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
-    transition: opacity 0.2s ease-in-out, top 0.35s ease-in-out;
+    -webkit-transition: opacity 0.15s ease-in-out, top 0.25s ease-in-out;
+    -o-transition: opacity 0.15s ease-in-out, top 0.25s ease-in-out;
+    transition: opacity 0.15s ease-in-out, top 0.25s ease-in-out;
     will-change: top; }
   .button .up {
     top: 0;
