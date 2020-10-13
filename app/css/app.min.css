@@ -134,29 +134,8 @@ html,
 body {
   height: 100%; }
 
-#atom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  min-height: 100%; }
-
-.atom-logo {
-  display: inline-block; }
-  .atom-logo svg {
-    display: block; }
-  .atom-logo_blue {
-    fill: #0b49c7; }
-  .atom-logo_white {
-    fill: #fff; }
-
-.atom-inner {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto; }
+body {
+  padding-top: 164px; }
 
 nav {
   display: -webkit-box;
@@ -170,7 +149,6 @@ nav {
     font-family: "TT Norms", sans-serif;
     font-weight: 500;
     font-size: 18px;
-    color: #fff;
     text-decoration: none;
     line-height: 1.2;
     letter-spacing: .5px; }
@@ -179,7 +157,6 @@ nav {
     height: 8px;
     display: inline-block;
     border-radius: 50%;
-    border: 2px solid #fff;
     -webkit-transform: translateY(6px);
         -ms-transform: translateY(6px);
             transform: translateY(6px);
@@ -193,7 +170,6 @@ nav {
   .burger:hover .burger-line_3 {
     width: 32px; }
   .burger .burger-line {
-    background: #fff;
     height: 3px;
     -webkit-transition: width 350ms ease-in-out;
     -o-transition: width 350ms ease-in-out;
@@ -207,21 +183,99 @@ nav {
     .burger .burger-line_3 {
       width: 16px; }
 
-header {
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   padding: 50px 0; }
-  header .atom-logo {
+  .header .contacts {
+    margin-left: auto;
+    padding-top: 10px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .header .contacts .wtsp {
+      margin-right: 30px; }
+    .header .contacts svg {
+      fill: #fff; }
+    .header .contacts a {
+      display: inline-block;
+      text-decoration: none;
+      -webkit-transition: opacity 300ms ease;
+      -o-transition: opacity 300ms ease;
+      transition: opacity 300ms ease; }
+      .header .contacts a:hover {
+        opacity: .75; }
+  .header .phone-link {
+    font-family: "TT Norms", sans-serif;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 40px; }
+  .header .atom-logo {
     margin-right: 84px; }
-  header .header-inner {
+  .header-light {
+    background: #fff; }
+    .header-light .nav-link_separator {
+      border: 2px solid #0b49c7; }
+    .header-light .burger-line {
+      background: #0b49c7; }
+    .header-light .atom-logo {
+      display: inline-block; }
+      .header-light .atom-logo svg {
+        display: block;
+        fill: #0b49c7; }
+    .header-light nav .nav-link {
+      color: #222b3d; }
+      .header-light nav .nav-link:after {
+        background: rgba(34, 43, 61, 0.5); }
+      .header-light nav .nav-link:hover:after {
+        width: 100%; }
+  .header-dark {
+    background: #0b49c7; }
+    .header-dark .nav-link_separator {
+      border: 2px solid #fff; }
+    .header-dark .burger-line {
+      background: #fff; }
+    .header-dark .atom-logo {
+      display: inline-block; }
+      .header-dark .atom-logo svg {
+        display: block;
+        fill: #fff; }
+    .header-dark nav .nav-link {
+      color: #fff; }
+      .header-dark nav .nav-link:after {
+        background: rgba(255, 255, 255, 0.5); }
+      .header-dark nav .nav-link:hover:after {
+        width: 100%; }
+  .header .header-inner {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .header .header-inner .nav-link:after {
+      content: '';
+      height: 2px;
+      display: block;
+      -webkit-transition: width 300ms ease;
+      -o-transition: width 300ms ease;
+      transition: width 300ms ease;
+      -webkit-transform: translateY(5px);
+          -ms-transform: translateY(5px);
+              transform: translateY(5px);
+      width: 0; }
 
 footer {
   background: #fff;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
   padding: 70px 0 90px 0; }
+  footer .logo-link svg {
+    fill: #0b49c7; }
 
 section.home {
   background: #0b49c7;

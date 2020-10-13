@@ -13,27 +13,8 @@ body {
   height: 100%;
 }
 
-#atom {
-  display: flex;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.atom-logo {
-  display: inline-block;
-  svg {
-    display: block;
-  }
-  &_blue {
-    fill: $blue;
-  }
-  &_white {
-    fill: $white;
-  }
-}
-
-.atom-inner {
-  flex: 1 0 auto;
+body {
+  padding-top: 164px;
 }
 
 nav {
@@ -44,7 +25,6 @@ nav {
     font-family: "TT Norms", sans-serif;
     font-weight: 500;
     font-size: 18px;
-    color: $white;
     text-decoration: none;
     line-height: 1.2;
     letter-spacing: .5px;
@@ -54,7 +34,6 @@ nav {
     height: 8px;
     display: inline-block;
     border-radius: 50%;
-    border: 2px solid $white;
     transform: translateY(6px);
     margin: 0 40px;
   }
@@ -72,7 +51,6 @@ nav {
     }
   }
   .burger-line {
-    background: $white;
     height: 3px;
     transition: width 350ms ease-in-out;
     &_1 {
@@ -89,20 +67,120 @@ nav {
   }
 }
 
-header {
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
   padding: 50px 0;
+  .contacts {
+    margin-left: auto;
+    padding-top: 10px;
+    display: inline-flex;
+    align-items: center;
+    .wtsp {
+      margin-right: 30px;
+    }
+    svg {
+      fill: $white;
+    }
+    a {
+      display: inline-block;
+      text-decoration: none;
+      transition: opacity 300ms ease;
+      &:hover {
+        opacity: .75;
+      }
+    }
+  }
+  .phone-link {
+    font-family: "TT Norms", sans-serif;
+    color: $white;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 40px;
+  }
   .atom-logo {
     margin-right: 84px;
   }
+  &-light {
+    background: $white;
+    .nav-link_separator {
+      border: 2px solid $blue;
+    }
+    .burger-line {
+      background: $blue;
+    }
+    .atom-logo {
+      display: inline-block;
+      svg {
+        display: block;
+        fill: $blue;
+      }
+    }
+    nav {
+      .nav-link {
+        color: $dark-shade;
+        &:after {
+          background: transparentize($dark-shade, .5);
+        }
+        &:hover:after {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &-dark {
+    background: $blue;
+    .nav-link_separator {
+      border: 2px solid $white;
+    }
+    .burger-line {
+      background: $white;
+    }
+    .atom-logo {
+      display: inline-block;
+      svg {
+        display: block;
+        fill: $white;
+      }
+    }
+    nav {
+      .nav-link {
+        color: $white;
+        &:after {
+          background: transparentize($white, .5);
+        }
+        &:hover:after {
+          width: 100%;
+        }
+      }
+    }
+  }
   .header-inner {
     display: flex;
+    align-items: flex-start;
+
+    .nav-link:after {
+      content: '';
+      height: 2px;
+      display: block;
+      transition: width 300ms ease;
+      transform: translateY(5px);
+      width: 0;
+    }
   }
 }
 
 footer {
   background: $white;
-  flex: 0 0 auto;
   padding: 70px 0 90px 0;
+
+  .logo-link {
+    svg {
+      fill: $blue;
+    }
+  }
 }
 
 section {
