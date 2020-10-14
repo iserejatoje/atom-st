@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin social-icons {
   .contact-icons {
     a {
@@ -6,9 +8,26 @@
           fill: $blue;
         }
       }
+
       svg {
         fill: $social-icon;
       }
     }
   }
+}
+
+@mixin respond($min: -1, $max: -1, $media: "all") {
+  $query: "only " + $media;
+
+  @if $min != -1 and $max != -1 {
+    $query: "only " + $media + " and (min-width: " + $min + ") and (max-width: " + ($max - 1) + ")";
+  } @else if $min == -1 and $max != -1 {
+    $query: "only " + $media + " and (max-width: " + ($max - 1) + ")";
+  } @else if $min != -1 and $max == -1 {
+    $query: "only " + $media + " and (min-width: " + $min + ")";
+  }
+
+  @media #{$query} {
+    @content;
+  };
 }

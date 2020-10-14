@@ -64,18 +64,23 @@
             <section class="feedback">
                 <div class="container">
 
-                    <div class="form">
+                    <div class="feedback-titlе striped striped_white">
+                        <div class="bold">Есть вопрос</div>
+                        <span>или предложение?</span>
+                    </div>
+
+                    <form autocomplete="off" action="" method="post" class="form">
                         <div class="form-body">
                             <div class="input-wrap input-wrap_wild input-wrap_placeholder">
                                 <input type="text" class="input" name="firstname">
                                 <span class="input-placeholder">Имя</span>
                             </div>
                             <div class="input-wrap input-wrap_placeholder">
-                                <input type="text" class="input" name="email">
+                                <input type="email" class="input" name="email">
                                 <span class="input-placeholder">E-mail</span>
                             </div>
                             <div class="input-wrap input-wrap_placeholder">
-                                <input type="text" class="input" name="phone">
+                                <input type="tel" class="input" name="phone">
                                 <span class="input-placeholder">Номер телефона</span>
                             </div>
                             <div class="input-wrap input-wrap_wild input-wrap_placeholder">
@@ -83,12 +88,22 @@
                                 <span class="input-placeholder">Ваш вопрос</span>
                             </div>
                         </div>
-                    </div>
 
-                    <button class="button button_white">
-                        <span class="up">Задать вопрос</span>
-                        <span class="down">Задать вопрос</span>
-                    </button>
+                        <div class="policy">
+                            <label class="checkbox">
+                                <input type="checkbox">
+                                <span></span>
+                                Даю согласие на обработку своих <a href="">персональных данных</a>
+                            </label>
+                        </div>
+
+                        <button class="button button_white">
+                            <span class="up">Задать вопрос</span>
+                            <span class="down">Задать вопрос</span>
+                        </button>
+                    </form>
+
+
                 </div>
             </section>
 
@@ -132,7 +147,7 @@
                         </div>
                     </div>
                     <div class="column column_3">
-                        <a href="tel:8 (3842) 63-03-23" class="atom-phone striped">8 (3842) 63-03-23</a>
+                        <a href="tel:8 (3842) 63-03-23" class="atom-phone striped striped_gray">8 (3842) 63-03-23</a>
                         <div class="atom-address">
                             <span>Кемерово, ул. Шестакова, 6, оф. 315</span>
                         </div>
@@ -149,8 +164,8 @@
         </footer>
 
     </div>
-
     <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.mask.min.js"></script>
     <script src="app/js/app.min.js"></script>
 </body>
 </html>

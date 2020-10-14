@@ -30,6 +30,7 @@
     "jquery": "^3.5.1"
   },
   "dependencies": {
+    "jquery-mask-plugin": "^1.14.16",
     "normalize.css": "^8.0.1"
   }
 }

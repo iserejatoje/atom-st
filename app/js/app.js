@@ -24,6 +24,7 @@ function mapInit() {
 }
 
 $(document).ready(function () {
+    $('[type="tel"]').mask('+7(000)000-0000');
     $('body')
         .on('focus', '.input-wrap_placeholder input', function () {
             $(this).parent().addClass('active');
