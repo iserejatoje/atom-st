@@ -22,3 +22,14 @@ function mapInit() {
         });
     map.geoObjects.add(atom_pin);
 }
+
+$(document).ready(function () {
+    $('body')
+        .on('focus', '.input-wrap_placeholder input', function () {
+            $(this).parent().addClass('active');
+        })
+        .on('blur', '.input-wrap_placeholder input', function () {
+            if ($(this).val() === '')
+                $(this).parent().removeClass('active');
+        })
+})

@@ -16,6 +16,10 @@
   padding-right: $container-padding;
 }
 
+input {
+  font-family: 'TT Norms', sans-serif;
+}
+
 html,
 body {
   height: 100%;
@@ -47,7 +51,7 @@ nav {
   align-items: flex-start;
   padding-top: 16px;
 
-  a {
+  .nav-link {
     font-family: "TT Norms", sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -367,15 +371,76 @@ footer {
 }
 
 section {
+  &.feedback {
+    min-height: 820px;
+    background: $blue;
+    padding: 140px 0;
+    box-sizing: border-box;
+    .form {
+      max-width: 615px;
+    }
+  }
   &.home {
     background: $blue;
     min-height: 100vh;
   }
 }
 
+.form {
+  margin-bottom: 40px;
+
+  .input {
+    border: none;
+    border-bottom: 3px solid $white;
+    outline: none;
+    background: none;
+    color: $white;
+    height: 40px;
+    font-size: 18px;
+    letter-spacing: 0.25px;
+  }
+
+  .form-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 45px;
+    grid-row-gap: 39px;
+  }
+
+  .input-wrap_wild {
+    grid-column: 1 / 3;
+  }
+
+  .input-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    &.active {
+      .input-placeholder {
+        top: -12px;
+        font-size: 13px;
+        opacity: .7;
+      }
+    }
+
+    .input-placeholder {
+      position: absolute;
+      font-family: 'TT Norms', sans-serif;
+      font-size: 18px;
+      color: $white;
+      pointer-events: none;
+      top: 10px;
+      letter-spacing: 0.4px;
+      transition: top 250ms ease, opacity 250ms ease, font-size 250ms ease;
+    }
+
+  }
+}
+
 .button {
-  font-weight: bold;
   font-family: "TT Norms", sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.25px;
   line-height: 1.2;
@@ -386,6 +451,19 @@ section {
   outline: none;
   position: relative;
   overflow: hidden;
+
+  &_blue {
+    background: $blue;
+    color: $white;
+    font-size: 15px;
+  }
+
+  &_white {
+    background: $white;
+    color: $blue;
+    font-size: 15px;
+  }
+
   .up,
   .down {
     position: relative;
@@ -404,11 +482,6 @@ section {
     right: 0;
     top: 80px;
     width: 100%;
-  }
-  &_blue {
-    background: $blue;
-    color: $white;
-    font-size: 15px;
   }
   &:hover {
     .up {
