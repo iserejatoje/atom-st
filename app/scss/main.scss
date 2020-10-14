@@ -93,8 +93,6 @@ footer {
 
 nav {
   display: flex;
-  align-items: flex-start;
-  padding-top: 16px;
 
   .nav-link {
     font-family: "TT Norms", sans-serif;
@@ -103,23 +101,34 @@ nav {
     text-decoration: none;
     line-height: 1.2;
     letter-spacing: .5px;
+
+    @include respond(0, 760px) {
+      display: none;
+    }
   }
 
   .nav-link_separator {
     width: 8px;
     height: 8px;
-    display: inline-block;
     border-radius: 50%;
     transform: translateY(6px);
     margin: 0 40px;
+    @include respond(0, 760px) {
+      display: none;
+    }
+    @include respond(760px) {
+      display: inline-block;
+    }
   }
+
+
+
 }
 
 .burger {
   cursor: pointer;
   margin-left: 48px;
   width: 31px;
-
   &:hover {
     .burger-line_1 {
       width: 16px;
@@ -243,10 +252,20 @@ nav {
   z-index: 10;
   padding: $header-padding 0;
 
+  @include respond(0, 1170px) {
+    .wtsp,
+    .tlgr {
+      display: none;
+    }
+  }
+
   .atom-phone {
     font-size: 22px;
     font-weight: 500;
-    margin-right: 40px;
+
+    @include respond(1170px) {
+      margin-right: 40px;
+    }
 
     &:hover {
       opacity: .75;
@@ -254,15 +273,22 @@ nav {
 
   }
 
-  .contact-icons {
-    padding-top: 10px;
-  }
-
   .atom-logo {
-    margin-right: 84px;
+    @include respond(1020px) {
+      margin-right: 84px;
+    }
+    @include respond(0, 1020px) {
+      margin-right: auto;
+    }
   }
 
-  // Белый фон, сине-черный текст
+  .contact-icons {
+    @include respond(0, 1020px) {
+      display: none;
+    }
+  }
+
+    // Белый фон, сине-черный текст
 
   &-light {
     background: $white;
@@ -353,7 +379,7 @@ nav {
 
   .header-inner {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 
     .nav-link:after {
       content: '';
@@ -408,8 +434,14 @@ nav {
 
 #map {
   background: $map-background;
-  min-height: 700px;
   width: 100%;
+
+  @include respond(760px) {
+    min-height: 700px;
+  }
+  @include respond(0, 760px) {
+    min-height: 400px;
+  }
 
   .ymaps-layers-pane {
     -webkit-filter: grayscale(100%);
@@ -494,10 +526,15 @@ section {
     .feedback-titlе {
       font-family: "TT Norms", sans-serif;
       margin-bottom: 37px;
-      font-size: 48px;
       color: $white;
       @include respond(1280px) {
         margin-left: 30px;
+      }
+      @include respond(760px) {
+        font-size: 48px;
+      }
+      @include respond(0, 760px) {
+        font-size: 32px;
       }
       .bold {
         font-weight: bold;
@@ -519,8 +556,9 @@ section {
 }
 
 .form {
-  margin-bottom: 40px;
-
+  @include respond(760px) {
+    margin-bottom: 40px;
+  }
   .input {
     border: none;
     outline: none;
