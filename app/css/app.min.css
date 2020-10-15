@@ -326,7 +326,7 @@ nav {
       content: '';
       position: absolute;
       width: 48px;
-      height: 11px;
+      height: 22px;
       z-index: 1;
       display: block;
       -webkit-transform: rotate(45deg);
@@ -541,16 +541,36 @@ section.feedback {
   background: #0b49c7;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
-  @media only all and (min-width: 1280px) {
+  @media only all and (min-width: 1336px) {
     section.feedback {
-      padding: 128px 0 120px; } }
-  @media only all and (min-width: 0) and (max-width: 1279px) {
+      background-image: url(../img/sprite.svg#atom-image);
+      background-repeat: no-repeat;
+      background-position-y: 106px; } }
+  @media only all and (min-width: 1760px) {
+    section.feedback {
+      background-position-x: calc(100% - 192px); } }
+  @media only all and (min-width: 1336px) and (max-width: 1759px) {
+    section.feedback {
+      background-position-x: calc(100% - 60px); } }
+  @media only all and (min-width: 1540px) {
+    section.feedback {
+      background-size: 647px; } }
+  @media only all and (min-width: 1336px) and (max-width: 1539px) {
+    section.feedback {
+      background-size: 547px; } }
+  @media only all and (min-width: 0) and (max-width: 1335px) {
     section.feedback {
       padding: 35px 0; } }
+  @media only all and (min-width: 1336px) {
+    section.feedback {
+      padding: 128px 0 121px; } }
   section.feedback .feedback-titlе {
     font-family: "TT Norms", sans-serif;
     margin-bottom: 37px;
     color: #fff; }
+    @media only all and (min-width: 0) and (max-width: 1279px) {
+      section.feedback .feedback-titlе {
+        text-align: center; } }
     @media only all and (min-width: 1280px) {
       section.feedback .feedback-titlе {
         margin-left: 30px; } }
@@ -563,16 +583,20 @@ section.feedback {
     section.feedback .feedback-titlе .bold {
       font-weight: bold; }
     @media only all and (min-width: 1280px) {
-      section.feedback .feedback-titlе span {
+      section.feedback .feedback-titlе .last {
         margin-left: 60px; } }
   section.feedback .form {
     max-width: 615px; }
+    @media only all and (min-width: 0) and (max-width: 1279px) {
+      section.feedback .form {
+        margin-left: auto;
+        margin-right: auto; } }
 
 section.home {
   background: #0b49c7;
   min-height: 100vh; }
 
-@media only all and (min-width: 760px) {
+@media only all and (min-width: 1336px) {
   .form {
     margin-bottom: 40px; } }
 
@@ -643,7 +667,7 @@ section.home {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.25px;
+  letter-spacing: 1px;
   line-height: 1.2;
   border-radius: 30px;
   border: none;
@@ -697,3 +721,18 @@ section.home {
     display: inline-block;
     padding-bottom: 4px;
     letter-spacing: 0.2px; }
+
+.feedback-open #feedback {
+  display: block; }
+
+#feedback {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #0b49c7;
+  color: #fff;
+  height: 100vh;
+  z-index: 200;
+  display: none; }

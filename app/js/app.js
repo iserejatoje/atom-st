@@ -33,4 +33,7 @@ $(document).ready(function () {
             if ($(this).val() === '')
                 $(this).parent().removeClass('active');
         })
+        .on('click', '.burger', function() {
+            $('body').addClass('feedback-open')
+        })
 })

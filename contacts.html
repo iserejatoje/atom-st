@@ -65,8 +65,8 @@
                 <div class="container">
 
                     <div class="feedback-titlе striped striped_white">
-                        <div class="bold">Есть вопрос</div>
-                        <span>или предложение?</span>
+                        <div class="first"><span class="bold">Есть вопрос</span></div>
+                        <div class="last">или предложение?</div>
                     </div>
 
                     <form autocomplete="off" action="" method="post" class="form">
@@ -164,6 +164,55 @@
         </footer>
 
     </div>
+
+    <div id="feedback">
+        <section class="feedback">
+            <div class="container">
+
+                <div class="feedback-titlе striped striped_white">
+                    <div class="first"><span class="bold">Давайте</span> обсудим</div>
+                    <div class="last">Ваш <span class="bold">проект</span></div>
+                </div>
+
+                <form autocomplete="off" action="" method="post" class="form">
+                    <div class="form-body">
+                        <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                            <input type="text" class="input" name="firstname">
+                            <span class="input-placeholder">Имя</span>
+                        </div>
+                        <div class="input-wrap input-wrap_placeholder">
+                            <input type="email" class="input" name="email">
+                            <span class="input-placeholder">E-mail</span>
+                        </div>
+                        <div class="input-wrap input-wrap_placeholder">
+                            <input type="tel" class="input" name="phone" required>
+                            <span class="input-placeholder">Номер телефона</span>
+                        </div>
+                        <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                            <input type="text" class="input" name="message" required>
+                            <span class="input-placeholder">Сообщение</span>
+                        </div>
+                    </div>
+
+                    <div class="policy">
+                        <label class="checkbox">
+                            <input checked name="agree" type="checkbox">
+                            <span></span>
+                            Даю согласие на обработку своих <a href="">персональных данных</a>
+                        </label>
+                    </div>
+
+                    <button class="button button_white">
+                        <span class="up">Отправки заявку</span>
+                        <span class="down">Отправки заявку</span>
+                    </button>
+                </form>
+
+
+            </div>
+        </section>
+    </div>
+
     <script src="app/js/jquery.min.js"></script>
     <script src="app/js/jquery.mask.min.js"></script>
     <script src="app/js/app.min.js"></script>

@@ -216,7 +216,7 @@ nav {
         content: '';
         position: absolute;
         width: 48px;
-        height: 11px;
+        height: 22px;
         z-index: 1;
         display: block;
         transform: rotate(45deg);
@@ -514,19 +514,45 @@ footer {
 section {
   &.feedback {
     background: $blue;
-    @include respond(1280px) {
-      padding: 128px 0 120px;
+    box-sizing: border-box;
+
+    @include respond(1336px) {
+      background-image: url(../img/sprite.svg#atom-image);
+      background-repeat: no-repeat;
+      background-position-y: 106px;
     }
 
-    @include respond(0, 1280px) {
+    @include respond(1760px) {
+      background-position-x: calc(100% - 192px);
+    }
+
+    @include respond(1336px, 1760px) {
+      background-position-x: calc(100% - 60px);
+    }
+
+    @include respond(1540px) {
+      background-size: 647px;
+    }
+
+    @include respond(1336px, 1540px) {
+      background-size: 547px;
+    }
+
+    @include respond(0, 1336px) {
       padding: 35px 0;
     }
 
-    box-sizing: border-box;
+    @include respond(1336px) {
+      padding: 128px 0 121px;
+    }
+
     .feedback-titlе {
       font-family: "TT Norms", sans-serif;
       margin-bottom: 37px;
       color: $white;
+      @include respond(0, 1280px) {
+        text-align: center;
+      }
       @include respond(1280px) {
         margin-left: 30px;
       }
@@ -539,7 +565,7 @@ section {
       .bold {
         font-weight: bold;
       }
-      span {
+      .last {
         @include respond(1280px) {
           margin-left: 60px;
         }
@@ -547,6 +573,10 @@ section {
     }
     .form {
       max-width: 615px;
+      @include respond(0, 1280px) {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
   &.home {
@@ -556,7 +586,7 @@ section {
 }
 
 .form {
-  @include respond(760px) {
+  @include respond(1336px) {
     margin-bottom: 40px;
   }
   .input {
@@ -627,7 +657,7 @@ section {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.25px;
+  letter-spacing: 1px;
   line-height: 1.2;
   border-radius: 30px;
   border: none;
@@ -693,4 +723,23 @@ section {
     padding-bottom: 4px;
     letter-spacing: 0.2px;
   }
+}
+
+.feedback-open {
+  #feedback {
+    display: block;
+  }
+}
+
+#feedback {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: $blue;
+  color: $white;
+  height: 100vh;
+  z-index: 200;
+  display: none;
 }
