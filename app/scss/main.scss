@@ -516,7 +516,7 @@ section {
     background: $blue;
     box-sizing: border-box;
 
-    @include respond(1336px) {
+    @include respond(1280px) {
       background-image: url(../img/sprite.svg#atom-image);
       background-repeat: no-repeat;
       background-position-y: 106px;
@@ -526,23 +526,23 @@ section {
       background-position-x: calc(100% - 192px);
     }
 
-    @include respond(1336px, 1760px) {
-      background-position-x: calc(100% - 60px);
+    @include respond(1280px, 1760px) {
+      background-position-x: calc(100% - 40px);
     }
 
     @include respond(1540px) {
       background-size: 647px;
     }
 
-    @include respond(1336px, 1540px) {
+    @include respond(1280px, 1540px) {
       background-size: 547px;
     }
 
-    @include respond(0, 1336px) {
+    @include respond(0, 1280px) {
       padding: 35px 0;
     }
 
-    @include respond(1336px) {
+    @include respond(1280px) {
       padding: 128px 0 121px;
     }
 
@@ -576,6 +576,7 @@ section {
       @include respond(0, 1280px) {
         margin-left: auto;
         margin-right: auto;
+        text-align: center;
       }
     }
   }
@@ -657,7 +658,7 @@ section {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   line-height: 1.2;
   border-radius: 30px;
   border: none;
@@ -725,13 +726,7 @@ section {
   }
 }
 
-.feedback-open {
-  #feedback {
-    display: block;
-  }
-}
-
-#feedback {
+#feedback-popup {
   position: fixed;
   left: 0;
   right: 0;
@@ -742,4 +737,15 @@ section {
   height: 100vh;
   z-index: 200;
   display: none;
+
+  .feedback {
+    min-height: 680px;
+    height: 100%;
+  }
+}
+
+.feedback-open {
+  #feedback-popup {
+    display: block;
+  }
 }

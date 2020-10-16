@@ -6,24 +6,111 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Atom &mdash; web studio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="app/css/normalize.css">
+    <link rel="stylesheet" href="app/css/app.min.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="preload" href="app/fonts/TTNorms-Medium.woff" type="font/woff" crossorigin="anonymous" as="font">
 </head>
 <body>
+    <div id="atom">
 
-<h1>Pages &mdash; Atom web studio</h1>
+        <div class="atom-inner">
 
-<ul>
-    <li><a href="homepage.html">Homepage</a></li>
-    <li><a href="contacts.html">Contacts</a></li>
-</ul>
+            <section class="home">
+                <header class="header header-dark">
+                    <div class="container-wild">
+                        <div class="header-inner">
+                            <a href="" class="atom-logo atom-logo_white">
+                                <svg width="155" height="64">
+                                    <use xlink:href="app/img/sprite.svg#logo"></use>
+                                </svg>
+                            </a>
+                            <nav>
+                                <a class="nav-link" href="">Компания</a>
+                                <span class="nav-link_separator"></span>
+                                <a class="nav-link" href="">Услуги</a>
+                                <span class="nav-link_separator"></span>
+                                <a class="nav-link" href="">Портфолио</a>
+                                <div class="burger">
+                                    <div class="burger-line burger-line_1"></div>
+                                    <div class="burger-line burger-line_2"></div>
+                                    <div class="burger-line burger-line_3"></div>
+                                </div>
+                            </nav>
+                            <div class="contact-icons">
+                                <a class="atom-phone header-phone" href="tel:8 (3842) 63-03-23">8 (3842) 63-03-23</a>
+                                <a href="" class="wtsp">
+                                    <svg width="33" height="33">
+                                        <use xlink:href="app/img/sprite.svg#telegram"></use>
+                                    </svg>
+                                </a>
+                                <a href="" class="tlgr">
+                                    <svg width="33" height="33">
+                                        <use xlink:href="app/img/sprite.svg#whatsapp"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </section>
 
-<br>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="column column_1">
+                        <div class="logo">
+                            <a href="homepage.html" class="logo-link">
+                                <svg width="155" height="64" class="atom-logo atom-logo_blue">
+                                    <use xlink:href="app/img/sprite.svg#logo"></use>
+                                </svg>
+                            </a>
+                        </div>
 
-Made with 💔
+                        <div class="atom-copyright">
+                            © 2015-2020 ATOM Studio. <br>Все права защищены.
+                        </div>
 
+                        <div class="contact-icons">
+                            <a href="" class="wtsp">
+                                <svg width="33" height="33">
+                                    <use xlink:href="app/img/sprite.svg#telegram"></use>
+                                </svg>
+                            </a>
+                            <a href="" class="tlgr">
+                                <svg width="33" height="33">
+                                    <use xlink:href="app/img/sprite.svg#whatsapp"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column column_2">
+                        <div class="footer-nav">
+                            <div class="footer-nav_item"><a href="">Компания</a></div>
+                            <div class="footer-nav_item"><a href="">Услуги</a></div>
+                            <div class="footer-nav_item"><a href="">Портфолио</a></div>
+                            <div class="footer-nav_item"><a href="">Блог</a></div>
+                            <div class="footer-nav_item"><a href="contacts.html">Контакты</a></div>
+                        </div>
+                    </div>
+                    <div class="column column_3">
+                        <a href="tel:8 (3842) 63-03-23" class="atom-phone striped_gray">8 (3842) 63-03-23</a>
+                        <div class="atom-address">
+                            <span>Кемерово, ул. Шестакова, 6, оф. 315</span>
+                        </div>
+                        <div class="subscribe">
+                            <button class="button button_blue">
+                                <span class="up">Подписаться на новости</span>
+                                <span class="down">Подписаться на новости</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
 </body>
 </html>

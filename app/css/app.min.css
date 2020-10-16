@@ -541,7 +541,7 @@ section.feedback {
   background: #0b49c7;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
-  @media only all and (min-width: 1336px) {
+  @media only all and (min-width: 1280px) {
     section.feedback {
       background-image: url(../img/sprite.svg#atom-image);
       background-repeat: no-repeat;
@@ -549,19 +549,19 @@ section.feedback {
   @media only all and (min-width: 1760px) {
     section.feedback {
       background-position-x: calc(100% - 192px); } }
-  @media only all and (min-width: 1336px) and (max-width: 1759px) {
+  @media only all and (min-width: 1280px) and (max-width: 1759px) {
     section.feedback {
-      background-position-x: calc(100% - 60px); } }
+      background-position-x: calc(100% - 40px); } }
   @media only all and (min-width: 1540px) {
     section.feedback {
       background-size: 647px; } }
-  @media only all and (min-width: 1336px) and (max-width: 1539px) {
+  @media only all and (min-width: 1280px) and (max-width: 1539px) {
     section.feedback {
       background-size: 547px; } }
-  @media only all and (min-width: 0) and (max-width: 1335px) {
+  @media only all and (min-width: 0) and (max-width: 1279px) {
     section.feedback {
       padding: 35px 0; } }
-  @media only all and (min-width: 1336px) {
+  @media only all and (min-width: 1280px) {
     section.feedback {
       padding: 128px 0 121px; } }
   section.feedback .feedback-titlе {
@@ -590,7 +590,8 @@ section.feedback {
     @media only all and (min-width: 0) and (max-width: 1279px) {
       section.feedback .form {
         margin-left: auto;
-        margin-right: auto; } }
+        margin-right: auto;
+        text-align: center; } }
 
 section.home {
   background: #0b49c7;
@@ -667,7 +668,7 @@ section.home {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   line-height: 1.2;
   border-radius: 30px;
   border: none;
@@ -722,10 +723,7 @@ section.home {
     padding-bottom: 4px;
     letter-spacing: 0.2px; }
 
-.feedback-open #feedback {
-  display: block; }
-
-#feedback {
+#feedback-popup {
   position: fixed;
   left: 0;
   right: 0;
@@ -736,3 +734,9 @@ section.home {
   height: 100vh;
   z-index: 200;
   display: none; }
+  #feedback-popup .feedback {
+    min-height: 680px;
+    height: 100%; }
+
+.feedback-open #feedback-popup {
+  display: block; }
