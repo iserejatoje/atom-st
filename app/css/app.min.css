@@ -210,8 +210,7 @@ body {
     body.feedback-open #feedback-popup {
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
-              transform: translateX(0);
-      display: block; }
+              transform: translateX(0); }
 
 #atom {
   display: -webkit-box;
@@ -738,11 +737,11 @@ section.home {
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
-  -webkit-transition: -webkit-transform 300ms ease-in-out;
-  transition: -webkit-transform 300ms ease-in-out;
-  -o-transition: transform 300ms ease-in-out;
-  transition: transform 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transition: -webkit-transform 450ms ease-in-out;
+  transition: -webkit-transform 450ms ease-in-out;
+  -o-transition: transform 450ms ease-in-out;
+  transition: transform 450ms ease-in-out;
+  transition: transform 450ms ease-in-out, -webkit-transform 450ms ease-in-out;
   position: fixed;
   left: 0;
   right: 0;

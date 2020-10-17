@@ -37,8 +37,10 @@ $(document).ready(function () {
         })
         .on('click', '.burger', function() {
             $('body').addClass('feedback-open')
+            $('.feedback-form').addClass('open');
         })
         .on('click', '.form-close', function() {
-            $('body').removeClass('feedback-open')
+            $('body').removeClass('feedback-open');
+            $('.feedback-form').removeClass('open');
         })
 })

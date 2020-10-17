@@ -75,10 +75,8 @@ body {
 
   &.feedback-open {
     overflow: hidden;
-
     #feedback-popup {
       transform: translateX(0);
-      display: block;
     }
   }
 }
@@ -742,7 +740,7 @@ section {
 #feedback-popup {
   overflow-y: auto;
   transform: translateX(-100%);
-  transition: transform 300ms ease-in-out;
+  transition: transform 450ms ease-in-out;
   position: fixed;
   left: 0;
   right: 0;
