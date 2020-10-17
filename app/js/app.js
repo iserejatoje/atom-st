@@ -7,6 +7,16 @@ if ($('#map').length > 0) {
     }, 1200);
 }
 
+function openFeedbackForm() {
+    $('body').addClass('feedback-open')
+    $('.feedback-form').addClass('open');
+}
+
+function closeFeedbackForm() {
+    $('body').removeClass('feedback-open')
+    $('.feedback-form').removeClass('open');
+}
+
 function mapInit() {
     let map = new ymaps.Map('map', {
         center: [55.361897, 86.067435],
@@ -27,6 +37,7 @@ function mapInit() {
 
 $(document).ready(function () {
     $('[type="tel"]').mask('+7(000)000-0000');
+
     $('body')
         .on('focus', '.input-wrap_placeholder input', function () {
             $(this).parent().addClass('active');
@@ -35,12 +46,10 @@ $(document).ready(function () {
             if ($(this).val() === '')
                 $(this).parent().removeClass('active');
         })
-        .on('click', '.burger', function() {
-            $('body').addClass('feedback-open')
-            $('.feedback-form').addClass('open');
+        .on('click', '[data-feedback]', function() {
+            openFeedbackForm();
         })
         .on('click', '.form-close', function() {
-            $('body').removeClass('feedback-open');
-            $('.feedback-form').removeClass('open');
+            closeFeedbackForm();
         })
 })
