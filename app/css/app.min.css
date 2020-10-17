@@ -203,9 +203,15 @@ body {
   height: 100%; }
 
 body {
-  padding-top: 114px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
+  body.feedback-open {
+    overflow: hidden; }
+    body.feedback-open #feedback-popup {
+      -webkit-transform: translateX(0);
+          -ms-transform: translateX(0);
+              transform: translateX(0);
+      display: block; }
 
 #atom {
   display: -webkit-box;
@@ -215,12 +221,29 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 100%; }
+  min-height: 100%;
+  overflow-y: auto;
+  padding-top: 114px; }
 
 .atom-inner {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto; }
+  .atom-inner .feedback-image {
+    top: 107px; }
+    @media only all and (min-width: 1740px) {
+      .atom-inner .feedback-image {
+        right: 195px; } }
+    @media only all and (min-width: 1500px) and (max-width: 1739px) {
+      .atom-inner .feedback-image {
+        right: 70px; } }
+    @media only all and (min-width: 1280px) and (max-width: 1499px) {
+      .atom-inner .feedback-image {
+        width: 500px;
+        right: 70px; } }
+    @media only all and (min-width: 0) and (max-width: 1279px) {
+      .atom-inner .feedback-image {
+        display: none; } }
 
 footer {
   background: #fff;
@@ -312,14 +335,14 @@ nav {
   .striped_gray:before {
     background: #fff; }
   .striped_gray:after {
-    width: 72px;
-    height: 81px;
+    width: 88px;
+    height: 85px;
     background: url(../img/sprite.svg#stripe) no-repeat; }
   .striped_white:before {
     background: #0b49c7; }
   .striped_white:after {
-    width: 72px;
-    height: 81px;
+    width: 88px;
+    height: 85px;
     background: url(../img/sprite.svg#stripe-white) no-repeat; }
   @media only all and (min-width: 1280px) {
     .striped_gray:before, .striped_white:before {
@@ -333,14 +356,14 @@ nav {
           -ms-transform: rotate(45deg);
               transform: rotate(45deg);
       top: 38px;
-      left: -19px;
+      left: -23px;
       pointer-events: none; }
     .striped_gray:after, .striped_white:after {
       position: absolute;
       content: '';
       display: block;
-      top: 3px;
-      left: -32px;
+      top: 0;
+      left: -41px;
       z-index: 2;
       pointer-events: none; } }
 
@@ -371,12 +394,15 @@ nav {
         margin-right: 40px; } }
     .header .atom-phone:hover {
       opacity: .75; }
-  @media only all and (min-width: 1020px) {
-    .header .atom-logo {
-      margin-right: 84px; } }
-  @media only all and (min-width: 0) and (max-width: 1019px) {
-    .header .atom-logo {
-      margin-right: auto; } }
+  .header .atom-logo {
+    position: relative;
+    z-index: 10; }
+    @media only all and (min-width: 1020px) {
+      .header .atom-logo {
+        margin-right: 84px; } }
+    @media only all and (min-width: 0) and (max-width: 1019px) {
+      .header .atom-logo {
+        margin-right: auto; } }
   @media only all and (min-width: 0) and (max-width: 1019px) {
     .header .contact-icons {
       display: none; } }
@@ -537,33 +563,17 @@ footer {
   footer .contact-icons a svg {
     fill: #dddfe5; }
 
-section.feedback {
-  background: #0b49c7;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+.feedback-form {
+  position: relative; }
   @media only all and (min-width: 1280px) {
-    section.feedback {
-      background-image: url(../img/sprite.svg#atom-image);
-      background-repeat: no-repeat;
-      background-position-y: 106px; } }
-  @media only all and (min-width: 1760px) {
-    section.feedback {
-      background-position-x: calc(100% - 192px); } }
-  @media only all and (min-width: 1280px) and (max-width: 1759px) {
-    section.feedback {
-      background-position-x: calc(100% - 40px); } }
-  @media only all and (min-width: 1540px) {
-    section.feedback {
-      background-size: 647px; } }
-  @media only all and (min-width: 1280px) and (max-width: 1539px) {
-    section.feedback {
-      background-size: 547px; } }
+    .feedback-form {
+      padding: 128px 0 121px; } }
+
+section.feedback {
+  background: #0b49c7; }
   @media only all and (min-width: 0) and (max-width: 1279px) {
     section.feedback {
       padding: 35px 0; } }
-  @media only all and (min-width: 1280px) {
-    section.feedback {
-      padding: 128px 0 121px; } }
   section.feedback .feedback-titlе {
     font-family: "TT Norms", sans-serif;
     margin-bottom: 37px;
@@ -724,6 +734,15 @@ section.home {
     letter-spacing: 0.2px; }
 
 #feedback-popup {
+  overflow-y: auto;
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: -webkit-transform 300ms ease-in-out;
+  transition: -webkit-transform 300ms ease-in-out;
+  -o-transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out;
+  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
   position: fixed;
   left: 0;
   right: 0;
@@ -731,12 +750,67 @@ section.home {
   top: 0;
   background: #0b49c7;
   color: #fff;
-  height: 100vh;
-  z-index: 200;
-  display: none; }
-  #feedback-popup .feedback {
-    min-height: 680px;
+  z-index: 200; }
+  @media only all and (min-width: 1280px) {
+    #feedback-popup {
+      padding: 51px 0; } }
+  @media only all and (min-width: 0) and (max-width: 1279px) {
+    #feedback-popup {
+      padding: 25px 0; } }
+  @media only all and (min-width: 1740px) {
+    #feedback-popup .feedback-image {
+      right: 195px;
+      top: 75px; } }
+  @media only all and (min-width: 1500px) and (max-width: 1739px) {
+    #feedback-popup .feedback-image {
+      right: 70px;
+      top: 75px; } }
+  @media only all and (min-width: 1280px) and (max-width: 1499px) {
+    #feedback-popup .feedback-image {
+      width: 500px;
+      right: 70px;
+      top: 75px; } }
+  @media only all and (min-width: 0) and (max-width: 1279px) {
+    #feedback-popup .feedback-image {
+      display: none; } }
+  #feedback-popup .container-wild {
+    position: relative; }
+  #feedback-popup .atom-logo {
+    display: inline-block; }
+  #feedback-popup svg {
+    display: block;
+    fill: #fff; }
+  #feedback-popup .form-close {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: 15px; }
+    #feedback-popup .form-close svg {
+      -webkit-transition: -webkit-transform 200ms ease;
+      transition: -webkit-transform 200ms ease;
+      -o-transition: transform 200ms ease;
+      transition: transform 200ms ease;
+      transition: transform 200ms ease, -webkit-transform 200ms ease; }
+    #feedback-popup .form-close:hover svg {
+      -webkit-transform: scale(1.2);
+          -ms-transform: scale(1.2);
+              transform: scale(1.2); }
+  #feedback-popup .feedback-form {
     height: 100%; }
+    @media only all and (min-width: 1280px) {
+      #feedback-popup .feedback-form {
+        padding-top: 94px; } }
+    @media only all and (min-width: 0) and (max-width: 1279px) {
+      #feedback-popup .feedback-form {
+        padding-top: 24px; } }
 
-.feedback-open #feedback-popup {
-  display: block; }
+.feedback-image {
+  width: 641px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  pointer-events: none; }
+  .feedback-image img {
+    width: 100%; }

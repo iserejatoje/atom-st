@@ -71,18 +71,48 @@ body {
 }
 
 body {
-  padding-top: ($header-padding * 2) + 64px;
   box-sizing: border-box;
+
+  &.feedback-open {
+    overflow: hidden;
+
+    #feedback-popup {
+      transform: translateX(0);
+      display: block;
+    }
+  }
 }
 
 #atom {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  overflow-y: auto;
+  padding-top: ($header-padding * 2) + 64px;
 }
 
 .atom-inner {
   flex: 1 0 auto;
+
+  .feedback-image {
+    top: 107px;
+
+    @include respond(1740px) {
+      right: 195px;
+    }
+    @include respond(1500px, 1740px) {
+      right: 70px;
+    }
+
+    @include respond(1280px, 1500px) {
+      width: 500px;
+      right: 70px;
+    }
+
+    @include respond(0, 1280px) {
+      display: none;
+    }
+  }
 }
 
 footer {
@@ -194,8 +224,8 @@ nav {
       background: $white;
     }
     &:after {
-      width: 72px;
-      height: 81px;
+      width: 88px;
+      height: 85px;
       background: url(../img/sprite.svg#stripe) no-repeat;
     }
   }
@@ -204,8 +234,8 @@ nav {
       background: $blue;
     }
     &:after {
-      width: 72px;
-      height: 81px;
+      width: 88px;
+      height: 85px;
       background: url(../img/sprite.svg#stripe-white) no-repeat;
     }
   }
@@ -221,15 +251,15 @@ nav {
         display: block;
         transform: rotate(45deg);
         top: 38px;
-        left: -19px;
+        left: -23px;
         pointer-events: none;
       }
       &:after {
         position: absolute;
         content: '';
         display: block;
-        top: 3px;
-        left: -32px;
+        top: 0;
+        left: -41px;
         z-index: 2;
         pointer-events: none;
       }
@@ -274,6 +304,8 @@ nav {
   }
 
   .atom-logo {
+    position: relative;
+    z-index: 10;
     @include respond(1020px) {
       margin-right: 84px;
     }
@@ -511,39 +543,20 @@ footer {
   @include social-icons;
 }
 
+.feedback-form {
+  position: relative;
+
+  @include respond(1280px) {
+    padding: 128px 0 121px;
+  }
+}
+
 section {
   &.feedback {
     background: $blue;
-    box-sizing: border-box;
-
-    @include respond(1280px) {
-      background-image: url(../img/sprite.svg#atom-image);
-      background-repeat: no-repeat;
-      background-position-y: 106px;
-    }
-
-    @include respond(1760px) {
-      background-position-x: calc(100% - 192px);
-    }
-
-    @include respond(1280px, 1760px) {
-      background-position-x: calc(100% - 40px);
-    }
-
-    @include respond(1540px) {
-      background-size: 647px;
-    }
-
-    @include respond(1280px, 1540px) {
-      background-size: 547px;
-    }
 
     @include respond(0, 1280px) {
       padding: 35px 0;
-    }
-
-    @include respond(1280px) {
-      padding: 128px 0 121px;
     }
 
     .feedback-titlе {
@@ -727,6 +740,9 @@ section {
 }
 
 #feedback-popup {
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 300ms ease-in-out;
   position: fixed;
   left: 0;
   right: 0;
@@ -734,18 +750,86 @@ section {
   top: 0;
   background: $blue;
   color: $white;
-  height: 100vh;
   z-index: 200;
-  display: none;
 
-  .feedback {
-    min-height: 680px;
-    height: 100%;
+  @include respond(1280px) {
+    padding: 51px 0;
   }
+  @include respond(0, 1280px) {
+    padding: 25px 0;
+  }
+
+  .feedback-image {
+
+    @include respond(1740px) {
+      right: 195px;
+      top: 75px;
+    }
+    @include respond(1500px, 1740px) {
+      right: 70px;
+      top: 75px;
+    }
+
+    @include respond(1280px, 1500px) {
+      width: 500px;
+      right: 70px;
+      top: 75px;
+    }
+
+    @include respond(0, 1280px) {
+      display: none;
+    }
+
+  }
+
+  .container-wild {
+    position: relative;
+  }
+
+  .atom-logo {
+    display: inline-block;
+  }
+
+  svg {
+    display: block;
+    fill: $white;
+  }
+
+  .form-close {
+    cursor: pointer;
+    position: absolute;
+    top: 12px;
+    right: $container-padding;
+    svg {
+      transition: transform 200ms ease;
+    }
+    &:hover {
+      svg {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .feedback-form {
+    height: 100%;
+
+    @include respond(1280px) {
+      padding-top: 94px;
+    }
+    @include respond(0, 1280px) {
+      padding-top: 24px;
+    }
+  }
+
 }
 
-.feedback-open {
-  #feedback-popup {
-    display: block;
+.feedback-image {
+  width: 641px;
+  user-select: none;
+  position: absolute;
+  pointer-events: none;
+  img {
+    width: 100%;
   }
+
 }

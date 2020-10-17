@@ -61,6 +61,14 @@ function scripts() {
         .pipe(browserSync.stream())
 }
 
+function production_scripts() {
+    return src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', baseDir + '/js/app.js'])
+        .pipe(concat(paths.jsOutputName))
+        .pipe(uglify())
+        .pipe(dest(paths.scripts.dest))
+        .pipe(browserSync.stream())
+}
+
 function styles() {
     return src(paths.styles.src)
         .pipe(newer(paths.styles.dest))
@@ -84,3 +92,4 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.svgs = svgs;
 exports.default = parallel(styles, scripts, browsersync, startwatch);
+exports.build = parallel(styles, production_scripts, browsersync, startwatch);

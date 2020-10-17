@@ -1,9 +1,11 @@
-setTimeout(function () {
-    let element = document.createElement('script');
-    element.type = 'text/javascript';
-    element.src = '//api-maps.yandex.ru/2.0/?load=package.standard&apikey=51d373bc-ef59-4e41-8e63-3f5828620b8e&lang=ru-RU&onload=mapInit';
-    document.getElementsByTagName('body')[0].appendChild(element);
-}, 1200);
+if ($('#map').length > 0) {
+    setTimeout(function () {
+        let element = document.createElement('script');
+        element.type = 'text/javascript';
+        element.src = '//api-maps.yandex.ru/2.0/?load=package.standard&apikey=51d373bc-ef59-4e41-8e63-3f5828620b8e&lang=ru-RU&onload=mapInit';
+        document.getElementsByTagName('body')[0].appendChild(element);
+    }, 1200);
+}
 
 function mapInit() {
     let map = new ymaps.Map('map', {
@@ -35,5 +37,8 @@ $(document).ready(function () {
         })
         .on('click', '.burger', function() {
             $('body').addClass('feedback-open')
+        })
+        .on('click', '.form-close', function() {
+            $('body').removeClass('feedback-open')
         })
 })

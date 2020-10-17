@@ -112,5 +112,74 @@
         </footer>
 
     </div>
+
+    <div id="feedback-popup">
+        <div class="container-wild">
+            <a href="index.html" class="atom-logo atom-logo_white">
+                <svg width="155" height="64">
+                    <use xlink:href="app/img/sprite.svg#logo"></use>
+                </svg>
+            </a>
+            <div class="form-close">
+                <svg width="24" height="24">
+                    <use xlink:href="app/img/sprite.svg#close"></use>
+                </svg>
+            </div>
+        </div>
+        <section class="feedback">
+            <div class="feedback-form">
+                <div class="feedback-image">
+                    <img src="app/img/sprite.svg#atom-image" alt="">
+                </div>
+                <div class="container">
+                    <div class="feedback-titlе striped striped_white">
+                        <div class="first"><span class="bold">Давайте</span> обсудим</div>
+                        <div class="last">Ваш <span class="bold">проект</span></div>
+                    </div>
+
+                    <form autocomplete="off" action="" method="post" class="form">
+                        <div class="form-body">
+                            <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                <input type="text" class="input" name="firstname">
+                                <span class="input-placeholder">Имя</span>
+                            </div>
+                            <div class="input-wrap input-wrap_placeholder">
+                                <input type="email" class="input" name="email">
+                                <span class="input-placeholder">E-mail</span>
+                            </div>
+                            <div class="input-wrap input-wrap_placeholder">
+                                <input type="tel" class="input" name="phone" required>
+                                <span class="input-placeholder">Номер телефона</span>
+                            </div>
+                            <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                <input type="text" class="input" name="message" required>
+                                <span class="input-placeholder">Сообщение</span>
+                            </div>
+                        </div>
+
+                        <div class="policy">
+                            <label class="checkbox">
+                                <input checked name="agree" type="checkbox">
+                                <span></span>
+                                Даю согласие на обработку своих <a href="">персональных данных</a>
+                            </label>
+                        </div>
+
+                        <button class="button button_white">
+                            <span class="up">Отправить заявку</span>
+                            <span class="down">Отправить заявку</span>
+                        </button>
+                    </form>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/jquery.mask.min.js"></script>
+    <script src="app/js/app.min.js"></script>
+
 </body>
 </html>
