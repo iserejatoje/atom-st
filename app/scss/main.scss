@@ -881,7 +881,6 @@ section {
   background: $blue;
   color: $white;
   z-index: 200;
-  will-change: transform;
 
   @include respond(1280px) {
     padding: 51px 0;

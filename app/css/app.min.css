@@ -878,8 +878,7 @@ section.home {
   top: 0;
   background: #0b49c7;
   color: #fff;
-  z-index: 200;
-  will-change: transform; }
+  z-index: 200; }
   @media only all and (min-width: 1280px) {
     #feedback-popup {
       padding: 51px 0; } }
