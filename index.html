@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Atom &mdash; web studio</title>
+    <link rel="stylesheet" href="app/css/owl.carousel.css">
     <link rel="stylesheet" href="app/css/normalize.css">
     <link rel="stylesheet" href="app/css/app.min.css?v=2">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -55,6 +56,93 @@
 
             <section class="home">
 
+            </section>
+
+            <section class="blog">
+                <div class="container">
+                    <div class="section-titlе striped striped_blue">
+                        <div class="first"><span class="bold">Делимся</span> мыслями</div>
+                        <div class="last">идеями и <span class="bold">опытом</span></div>
+                    </div>
+                </div>
+
+                <div class="blog-slider_wrap">
+                    <div class="blog-slider owl-carousel">
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/1.jpg" alt="">
+                        </a>
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/2.jpg" alt="">
+                        </a>
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/3.jpg" alt="">
+                        </a>
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/1.jpg" alt="">
+                        </a>
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/2.jpg" alt="">
+                        </a>
+                        <a href="" class="blog-slider_item">
+                            <img src="app/img/home_slider/3.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="container">
+
+                    <a href="" class="button button_blue">
+                        <span class="up">Перейти в блог</span>
+                        <span class="down">Перейти в блог</span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="feedback">
+                <div class="feedback-form">
+                    <div class="feedback-image">
+                        <img src="app/img/sprite.svg#atom-image" alt="">
+                    </div>
+                    <div class="container">
+                        <div class="section-titlе striped striped_white">
+                            <div class="first"><span class="bold">Есть вопрос</span></div>
+                            <div class="last">или предложение?</div>
+                        </div>
+
+                        <form autocomplete="off" action="" method="post" class="form">
+                            <div class="form-body">
+                                <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                    <input type="text" class="input" name="firstname">
+                                    <span class="input-placeholder">Имя</span>
+                                </div>
+                                <div class="input-wrap input-wrap_placeholder">
+                                    <input type="email" class="input" name="email">
+                                    <span class="input-placeholder">E-mail</span>
+                                </div>
+                                <div class="input-wrap input-wrap_placeholder">
+                                    <input type="tel" class="input" name="phone" required>
+                                    <span class="input-placeholder">Номер телефона</span>
+                                </div>
+                                <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                    <input type="text" class="input" name="message" required>
+                                    <span class="input-placeholder">Ваш вопрос</span>
+                                </div>
+                            </div>
+
+                            <div class="policy">
+                                <label class="checkbox">
+                                    <input checked name="agree" type="checkbox">
+                                    <span></span>
+                                    Даю согласие на обработку своих <a href="">персональных данных</a>
+                                </label>
+                            </div>
+
+                            <button class="button button_white">
+                                <span class="up">Задать вопрос</span>
+                                <span class="down">Задать вопрос</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </section>
 
         </div>
@@ -134,7 +222,7 @@
                     <img src="app/img/sprite.svg#atom-image" alt="">
                 </div>
                 <div class="container">
-                    <div class="feedback-titlе striped striped_white">
+                    <div class="section-titlе striped striped_white">
                         <div class="first"><span class="bold">Давайте</span> обсудим</div>
                         <div class="last">Ваш <span class="bold">проект</span></div>
                     </div>
@@ -180,6 +268,7 @@
     </div>
 
     <script src="app/js/jquery.min.js"></script>
+    <script src="app/js/owl.carousel.min.js"></script>
     <script src="app/js/jquery.mask.min.js"></script>
     <script src="app/js/app.min.js"></script>
 

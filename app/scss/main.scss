@@ -218,6 +218,17 @@ nav {
 
 .striped {
   position: relative;
+  &_blue {
+    color: $blue;
+    &:before {
+      background: $blog-section-background;
+    }
+    &:after {
+      width: 88px;
+      height: 85px;
+      background: url(../img/sprite.svg#stripe-blue) no-repeat;
+    }
+  }
   &_gray {
     &:before {
       background: $white;
@@ -229,6 +240,7 @@ nav {
     }
   }
   &_white {
+    color: $white;
     &:before {
       background: $blue;
     }
@@ -238,6 +250,7 @@ nav {
       background: url(../img/sprite.svg#stripe-white) no-repeat;
     }
   }
+  &_blue,
   &_gray,
   &_white {
     @include respond(1280px) {
@@ -466,7 +479,7 @@ nav {
 #map {
   background: $map-background;
   width: 100%;
-
+  overflow-x: hidden;
   @include respond(760px) {
     min-height: 700px;
   }
@@ -551,7 +564,10 @@ footer {
 }
 
 section {
-
+  &.blog {
+    background: $blog-section-background;
+    padding: 100px 0 120px 0;
+  }
   &.contacts {
     @include respond(0, 1100px) {
       padding: 40px 0;
@@ -689,31 +705,6 @@ section {
       padding: 35px 0;
     }
 
-    .feedback-titlе {
-      font-family: "TT Norms", sans-serif;
-      margin-bottom: 37px;
-      color: $white;
-      @include respond(0, 1280px) {
-        text-align: center;
-      }
-      @include respond(1280px) {
-        margin-left: 30px;
-      }
-      @include respond(760px) {
-        font-size: 48px;
-      }
-      @include respond(0, 760px) {
-        font-size: 32px;
-      }
-      .bold {
-        font-weight: bold;
-      }
-      .last {
-        @include respond(1280px) {
-          margin-left: 60px;
-        }
-      }
-    }
     .form {
       max-width: 615px;
       @include respond(0, 1280px) {
@@ -726,6 +717,31 @@ section {
   &.home {
     background: $blue;
     min-height: 100vh;
+  }
+}
+
+.section-titlе {
+  font-family: "TT Norms", sans-serif;
+  margin-bottom: 37px;
+  @include respond(0, 1280px) {
+    text-align: center;
+  }
+  @include respond(1280px) {
+    margin-left: 30px;
+  }
+  @include respond(760px) {
+    font-size: 48px;
+  }
+  @include respond(0, 760px) {
+    font-size: 32px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  .last {
+    @include respond(1280px) {
+      margin-left: 58px;
+    }
   }
 }
 
@@ -803,6 +819,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.25px;
   line-height: 1.2;
+  text-decoration: none;
   border-radius: 30px;
   border: none;
   padding: 21px 35px;
@@ -810,6 +827,7 @@ section {
   outline: none;
   position: relative;
   overflow: hidden;
+  display: inline-block;
 
   &_blue {
     background: $blue;
@@ -828,6 +846,7 @@ section {
     position: relative;
     transition: opacity 0.15s ease-in-out, top 0.25s ease-in-out;
     will-change: top;
+    text-align: center;
   }
   .up {
     top: 0;
@@ -841,6 +860,7 @@ section {
     right: 0;
     top: 80px;
     width: 100%;
+    pointer-events: none;
   }
   &:hover {
     .up {
@@ -1021,4 +1041,31 @@ section {
     margin-left: 6px;
   }
 
+}
+
+.owl-carousel {
+  transition: opacity 600ms ease;
+  &:not(.owl-loaded) {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.owl-loaded {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.blog-slider_wrap {
+  min-height: 235px;
+  margin-top: 56px;
+  margin-bottom: 46px;
+  .blog-slider {
+    &_item {
+      img {
+        max-width: 373px;
+        display: block;
+      }
+    }
+  }
 }
