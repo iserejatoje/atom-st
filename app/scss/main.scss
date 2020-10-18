@@ -822,12 +822,19 @@ section {
   text-decoration: none;
   border-radius: 30px;
   border: none;
-  padding: 21px 35px;
   cursor: pointer;
   outline: none;
   position: relative;
   overflow: hidden;
   display: inline-block;
+  user-select: none;
+
+  &:not(.button_wild) {
+    padding: 21px 35px;
+  }
+  &.button_wild {
+    padding: 21px 46px;
+  }
 
   &_blue {
     background: $blue;
@@ -846,6 +853,7 @@ section {
     position: relative;
     transition: opacity 0.15s ease-in-out, top 0.25s ease-in-out;
     will-change: top;
+    user-select: none;
     text-align: center;
   }
   .up {
@@ -1044,7 +1052,7 @@ section {
 }
 
 .owl-carousel {
-  transition: opacity 600ms ease;
+  transition: opacity 700ms ease;
   &:not(.owl-loaded) {
     opacity: 0;
     visibility: hidden;
@@ -1057,11 +1065,58 @@ section {
 }
 
 .blog-slider_wrap {
-  min-height: 235px;
+  min-height: 442px;
   margin-top: 56px;
-  margin-bottom: 46px;
+  margin-bottom: 42px;
   .blog-slider {
     &_item {
+      max-width: 373px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 0.2px;
+
+      &:hover {
+        .blog-image_wrap {
+          img {
+            transform: scale(1.15);
+          }
+        }
+        .title {
+          color: $blue;
+        }
+      }
+
+      .blog-image_wrap {
+        overflow: hidden;
+        img {
+          transition: transform 300ms ease;
+        }
+      }
+
+      .category {
+        font-weight: 500;
+      }
+      .date {
+        font-size: 18px;
+        color: $blue;
+        margin-top: 35px;
+      }
+      .title {
+        font-size: 27px;
+        margin-top: 12px;
+        color: $dark-shade;
+        font-weight: bold;
+        line-height: 1.4;
+        transition: color 300ms ease;
+      }
+      .description {
+        font-size: 18px;
+        color: $dark-shade;
+        line-height: 1.667;
+        margin-top: 6px;
+      }
+
       img {
         max-width: 373px;
         display: block;

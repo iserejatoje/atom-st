@@ -41,11 +41,29 @@ $(document).ready(function () {
 
     if ($blogSlider.length > 0) {
         $blogSlider.owlCarousel({
-            center: true,
-            autoWidth: true,
-            startPosition: 1,
+            responsiveClass: true,
+            lazyLoad: true,
             dots: false,
-            margin: 70
+            startPosition: 1,
+            responsive:{
+                0:{
+                    items: 1,
+                    margin: 15,
+                    center: false,
+                    autoWidth: false,
+                    stagePadding: 15
+                },
+                420:{
+                    margin: 70,
+                    center: true,
+                    autoWidth: true,
+                },
+                2000:{
+                    margin: 70,
+                    center: true,
+                    autoWidth: true,
+                }
+            }
         });
     }
 
