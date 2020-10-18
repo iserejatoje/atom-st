@@ -36,15 +36,18 @@ function mapInit() {
 }
 
 $(document).ready(function () {
+    let $blogSlider = $('.blog-slider');
     $('[type="tel"]').mask('+7(000)000-0000');
 
-    $('.blog-slider').owlCarousel({
-        center: true,
-        autoWidth: true,
-        startPosition: 1,
-        dots: false,
-        margin: 70
-    });
+    if ($blogSlider.length > 0) {
+        $blogSlider.owlCarousel({
+            center: true,
+            autoWidth: true,
+            startPosition: 1,
+            dots: false,
+            margin: 70
+        });
+    }
 
     $('body')
         .on('focus', '.input-wrap_placeholder input', function () {
