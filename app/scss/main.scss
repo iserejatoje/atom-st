@@ -76,10 +76,57 @@ body {
   overflow-x: hidden;
   &.feedback-open {
     overflow: hidden;
-    #feedback-popup {
-      transform: translateX(0);
+    .popup {
+      right: 0;
     }
   }
+}
+
+.slider-wrap {
+  position: relative;
+}
+
+.blog-slider_arrows {
+  display: flex;
+  left: 0;
+  right: 0;
+
+  @include respond(0, 520px) {
+    justify-content: center;
+  }
+  @include respond(520px) {
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 45px;
+  }
+
+  .blog-prev,
+  .blog-next {
+    cursor: pointer;
+    svg {
+      display: block;
+      transition: fill 350ms ease;
+      fill: $light-gray;
+    }
+    &:hover {
+      svg {
+        fill: $blue;
+      }
+    }
+  }
+  .blog-prev {
+    margin-right: 35px;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+
+}
+
+.transition-block {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
 }
 
 #atom {
@@ -216,12 +263,39 @@ nav {
   }
 }
 
+.section-headline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .section-excerpt {
+    margin-right: 103px;
+    max-width: 512px;
+    font-size: 21px;
+    color: $dark-shade;
+    line-height: 1.524;
+    letter-spacing: .2px;
+    margin-top: 21px;
+  }
+}
+
 .striped {
   position: relative;
   &_blue {
     color: $blue;
     &:before {
       background: $blog-section-background;
+    }
+    &:after {
+      width: 88px;
+      height: 85px;
+      background: url(../img/sprite.svg#stripe-blue) no-repeat;
+    }
+  }
+  &_blue-on-white {
+    color: $blue;
+    &:before {
+      background: $white;
     }
     &:after {
       width: 88px;
@@ -250,6 +324,7 @@ nav {
       background: url(../img/sprite.svg#stripe-white) no-repeat;
     }
   }
+  &_blue-on-white,
   &_blue,
   &_gray,
   &_white {
@@ -564,9 +639,18 @@ footer {
 }
 
 section {
+  &.reviews {
+    padding: 110px 0 122px 0;
+  }
   &.blog {
     background: $blog-section-background;
-    padding: 100px 0 120px 0;
+
+    @include respond(520px) {
+      padding: 100px 0 120px 0;
+    }
+    @include respond(0, 520px) {
+      padding: 40px 0 50px 0;
+    }
   }
   &.contacts {
     @include respond(0, 1100px) {
@@ -897,15 +981,14 @@ section {
   }
 }
 
-#feedback-popup {
+.popup {
   overflow-y: auto;
-  transform: translateX(-100%);
-  transition: transform 450ms ease-in-out;
+  transition: right .6s linear;
   position: fixed;
   left: 0;
-  right: 0;
   bottom: 0;
   top: 0;
+  right: 100%;
   background: $blue;
   color: $white;
   z-index: 200;

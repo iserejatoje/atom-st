@@ -58,11 +58,36 @@
 
             </section>
 
+            <section class="reviews">
+                <div class="container">
+                    <div class="section-headline">
+                        <div class="section-titlе striped striped_blue-on-white">
+                            <div class="first"><span class="bold">Более 150</span> проектов</div>
+                            <div class="last">за <span class="bold">5+ лет</span></div>
+                        </div>
+                        <div class="section-excerpt">Нам доверяют федеральные компании и лидеры рынка в своих регионах</div>
+                    </div>
+                </div>
+            </section>
+
             <section class="blog">
+
                 <div class="container">
                     <div class="section-titlе striped striped_blue">
                         <div class="first"><span class="bold">Делимся</span> мыслями</div>
                         <div class="last">идеями и <span class="bold">опытом</span></div>
+                    </div>
+                    <div class="slider-wrap">
+                        <div class="blog-slider_arrows">
+                            <div class="blog-prev">
+                                <svg width="20" height="30">
+                                    <use xlink:href="app/img/sprite.svg#slider-arrow"></use>
+                                </svg></div>
+                            <div class="blog-next">
+                                <svg width="20" height="30">
+                                    <use xlink:href="app/img/sprite.svg#slider-arrow"></use>
+                                </svg></div>
+                        </div>
                     </div>
                 </div>
 
@@ -221,68 +246,69 @@
 
     </div>
 
-    <div id="feedback-popup">
-        <div class="container-wild">
-            <a href="index.html" class="atom-logo atom-logo_white">
-                <svg width="155" height="64">
-                    <use xlink:href="app/img/sprite.svg#logo"></use>
-                </svg>
-            </a>
-            <div class="form-close">
-                <svg width="24" height="24">
-                    <use xlink:href="app/img/sprite.svg#close"></use>
-                </svg>
-            </div>
-        </div>
-        <section class="feedback">
-            <div class="feedback-form">
-                <div class="feedback-image">
-                    <img src="app/img/sprite.svg#atom-image" alt="">
+    <div class="popup">
+        <div class="transition-block">
+            <div class="container-wild">
+                <a href="index.html" class="atom-logo atom-logo_white">
+                    <svg width="155" height="64">
+                        <use xlink:href="app/img/sprite.svg#logo"></use>
+                    </svg>
+                </a>
+                <div class="form-close">
+                    <svg width="24" height="24">
+                        <use xlink:href="app/img/sprite.svg#close"></use>
+                    </svg>
                 </div>
-                <div class="container">
-                    <div class="section-titlе striped striped_white">
-                        <div class="first"><span class="bold">Давайте</span> обсудим</div>
-                        <div class="last">Ваш <span class="bold">проект</span></div>
+            </div>
+            <section class="feedback">
+                <div class="feedback-form">
+                    <div class="feedback-image">
+                        <img src="app/img/sprite.svg#atom-image" alt="">
                     </div>
-
-                    <form autocomplete="off" action="" method="post" class="form">
-                        <div class="form-body">
-                            <div class="input-wrap input-wrap_wild input-wrap_placeholder">
-                                <input type="text" class="input" name="firstname">
-                                <span class="input-placeholder">Имя</span>
-                            </div>
-                            <div class="input-wrap input-wrap_placeholder">
-                                <input type="email" class="input" name="email">
-                                <span class="input-placeholder">E-mail</span>
-                            </div>
-                            <div class="input-wrap input-wrap_placeholder">
-                                <input type="tel" class="input" name="phone" required>
-                                <span class="input-placeholder">Номер телефона</span>
-                            </div>
-                            <div class="input-wrap input-wrap_wild input-wrap_placeholder">
-                                <input type="text" class="input" name="message" required>
-                                <span class="input-placeholder">Сообщение</span>
-                            </div>
+                    <div class="container">
+                        <div class="section-titlе striped striped_white">
+                            <div class="first"><span class="bold">Давайте</span> обсудим</div>
+                            <div class="last">Ваш <span class="bold">проект</span></div>
                         </div>
 
-                        <div class="policy">
-                            <label class="checkbox">
-                                <input checked name="agree" type="checkbox">
-                                <span></span>
-                                Даю согласие на обработку своих <a href="">персональных данных</a>
-                            </label>
-                        </div>
+                        <form autocomplete="off" action="" method="post" class="form">
+                            <div class="form-body">
+                                <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                    <input type="text" class="input" name="firstname">
+                                    <span class="input-placeholder">Имя</span>
+                                </div>
+                                <div class="input-wrap input-wrap_placeholder">
+                                    <input type="email" class="input" name="email">
+                                    <span class="input-placeholder">E-mail</span>
+                                </div>
+                                <div class="input-wrap input-wrap_placeholder">
+                                    <input type="tel" class="input" name="phone" required>
+                                    <span class="input-placeholder">Номер телефона</span>
+                                </div>
+                                <div class="input-wrap input-wrap_wild input-wrap_placeholder">
+                                    <input type="text" class="input" name="message" required>
+                                    <span class="input-placeholder">Сообщение</span>
+                                </div>
+                            </div>
 
-                        <button class="button button_white">
-                            <span class="up">Отправить заявку</span>
-                            <span class="down">Отправить заявку</span>
-                        </button>
-                    </form>
+                            <div class="policy">
+                                <label class="checkbox">
+                                    <input checked name="agree" type="checkbox">
+                                    <span></span>
+                                    Даю согласие на обработку своих <a href="">персональных данных</a>
+                                </label>
+                            </div>
 
+                            <button class="button button_white">
+                                <span class="up">Отправить заявку</span>
+                                <span class="down">Отправить заявку</span>
+                            </button>
+                        </form>
 
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </div>
 
     <script src="app/js/jquery.min.js"></script>

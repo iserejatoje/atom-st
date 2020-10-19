@@ -40,30 +40,36 @@ $(document).ready(function () {
     $('[type="tel"]').mask('+7(000)000-0000');
 
     if ($blogSlider.length > 0) {
-        $blogSlider.owlCarousel({
+        let owl = $blogSlider.owlCarousel({
             responsiveClass: true,
             lazyLoad: true,
             dots: false,
             startPosition: 1,
             responsive:{
-                0:{
+                0: {
                     items: 1,
                     margin: 15,
                     center: false,
                     autoWidth: false,
                     stagePadding: 15
                 },
-                420:{
+                420: {
                     margin: 70,
                     center: true,
                     autoWidth: true,
                 },
-                2000:{
+                2000: {
                     margin: 70,
                     center: true,
                     autoWidth: true,
                 }
             }
+        });
+        $('.blog-prev').click(function () {
+            owl.trigger('prev.owl.carousel');
+        });
+        $('.blog-next').click(function () {
+            owl.trigger('next.owl.carousel');
         });
     }
 
