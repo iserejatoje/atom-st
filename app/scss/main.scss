@@ -1,3 +1,4 @@
+@import "normalize";
 @import "fonts";
 @import "variables";
 @import "mixins";
@@ -212,7 +213,7 @@ nav {
 
   .burger-line {
     height: 3px;
-    transition: width 350ms ease;
+    transition: width 450ms ease;
 
     &_1 {
       width: 31px;
@@ -445,14 +446,18 @@ nav {
     nav {
       .nav-link {
         color: $dark-shade;
+        transition: color 250ms linear;
 
+        &:hover {
+          color: $blue;
+        }
         &:after {
           background: transparentize($dark-shade, .5);
         }
 
-        &:hover:after {
-          width: 100%;
-        }
+        //&:hover:after {
+        //  width: 100%;
+        //}
       }
     }
   }
@@ -491,14 +496,19 @@ nav {
     nav {
       .nav-link {
         color: $white;
+        transition: opacity 250ms linear;
+
+        &.unactive {
+          opacity: .4;
+        }
 
         &:after {
           background: transparentize($white, .5);
         }
 
-        &:hover:after {
-          width: 100%;
-        }
+        //&:hover:after {
+        //  width: 100%;
+        //}
       }
     }
   }
@@ -507,14 +517,16 @@ nav {
     display: flex;
     align-items: center;
 
-    .nav-link:after {
-      content: '';
-      height: 2px;
-      display: block;
-      transition: width 300ms ease;
-      transform: translateY(5px);
-      will-change: transform;
-      width: 0;
+    .nav-link {
+      &:after {
+        content: '';
+        height: 2px;
+        display: block;
+        transition: width 300ms ease;
+        transform: translateY(5px);
+        will-change: transform;
+        width: 0;
+      }
     }
   }
 }

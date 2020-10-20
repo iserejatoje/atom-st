@@ -62,7 +62,7 @@ function scripts() {
 }
 
 function production_scripts() {
-    return src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', baseDir + '/js/app.js'])
+    return src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', baseDir + '/jquery.mask.min.js', baseDir + '/swiperjs.js', baseDir + '/js/app.js'])
         .pipe(concat(paths.jsOutputName))
         .pipe(uglify())
         .pipe(dest(paths.scripts.dest))
@@ -70,6 +70,17 @@ function production_scripts() {
 }
 
 function styles() {
+    return src(paths.styles.src)
+        .pipe(newer(paths.styles.dest))
+        .pipe(sass())
+        .pipe(concat(paths.cssOutputName))
+        .pipe(autoprefixer({overrideBrowserslist: ['last 10 versions'], grid: true}))
+        // .pipe(cleancss({level: {1: {specialComments: 0}}}))
+        .pipe(dest(paths.styles.dest))
+        .pipe(browserSync.stream())
+}
+
+function production_styles() {
     return src(paths.styles.src)
         .pipe(newer(paths.styles.dest))
         .pipe(sass())
