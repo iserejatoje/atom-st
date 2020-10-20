@@ -1239,9 +1239,9 @@ section {
 
       &:hover {
         .blog-image_wrap {
-          transform: scale(0.95);
+          transform: scale(0.94);
           .blog-image {
-            transform: scale(1.2);
+            transform: scale(1.3);
           }
         }
         .title {
@@ -1258,7 +1258,7 @@ section {
           z-index: -1;
           background-repeat: no-repeat;
           height: 235px;
-          transition: transform 400ms ease;
+          transition: transform 550ms ease;
         }
       }
 
