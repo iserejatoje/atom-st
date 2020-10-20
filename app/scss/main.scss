@@ -77,7 +77,7 @@ body {
   &.feedback-open {
     overflow: hidden;
     .popup {
-      right: 0;
+      transform: translateX(0);
     }
   }
 }
@@ -102,6 +102,7 @@ body {
 
   .blog-prev,
   .blog-next {
+    outline: 0;
     cursor: pointer;
     svg {
       display: block;
@@ -121,12 +122,6 @@ body {
     }
   }
 
-}
-
-.transition-block {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
 }
 
 #atom {
@@ -263,19 +258,31 @@ nav {
   }
 }
 
-.section-headline {
+.center {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+.section-headline {
+  @include respond(1280px) {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
 
   .section-excerpt {
-    margin-right: 103px;
-    max-width: 512px;
     font-size: 21px;
     color: $dark-shade;
     line-height: 1.524;
     letter-spacing: .2px;
     margin-top: 21px;
+    @include respond(1280px) {
+      margin-right: 103px;
+      max-width: 512px;
+    }
+    @include respond(0, 1280px) {
+      text-align: center;
+    }
   }
 }
 
@@ -640,11 +647,62 @@ footer {
 
 section {
   &.reviews {
-    padding: 110px 0 122px 0;
+
+    @include respond(760px) {
+      padding: 98px 0 120px 0;
+    }
+    @include respond(0, 760px) {
+      padding: 45px 0 55px 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      margin-bottom: 87px;
+      @include respond(1020px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      @include respond(1280px) {
+        margin-top: 25px;
+      }
+      @include respond(0, 1280px) {
+        margin-top: 55px;
+      }
+      @include respond(800px, 1020px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      @include respond(520px, 800px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include respond(800px) {
+        grid-row-gap: 95px;
+      }
+      @include respond(0, 800px) {
+        grid-row-gap: 40px;
+      }
+      @include respond(0, 520px) {
+        grid-template-columns: 1fr;
+      }
+      @include respond(1220px) {
+        grid-column-gap: 55px;
+      }
+      @include respond(0, 1220px) {
+        grid-column-gap: 15px;
+      }
+      &_cell {
+        align-self: center;
+        justify-self: center;
+      }
+      img {
+        filter: contrast(0.8);
+      }
+    }
   }
   &.blog {
     background: $blog-section-background;
-
+    overflow-x: hidden;
+    .swiper-container {
+      overflow: visible;
+    }
     @include respond(520px) {
       padding: 100px 0 120px 0;
     }
@@ -983,15 +1041,17 @@ section {
 
 .popup {
   overflow-y: auto;
-  transition: right .6s linear;
+  transition: transform .6s linear;
   position: fixed;
   left: 0;
   bottom: 0;
   top: 0;
-  right: 100%;
+  transform: translateX(-100%);
   background: $blue;
   color: $white;
+  width: 100vw;
   z-index: 200;
+  will-change: transform;
 
   @include respond(1280px) {
     padding: 51px 0;
@@ -1096,6 +1156,7 @@ section {
 
 .link-hand {
   font-size: 16px;
+  white-space: nowrap;
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
@@ -1104,6 +1165,16 @@ section {
   letter-spacing: .2px;
   position: relative;
   transition: color 300ms ease;
+  &:not(&_download) {
+    svg {
+      transform: translateY(2px);
+    }
+  }
+  &_download {
+    svg {
+      transform: rotate(90deg) translateX(2px);
+    }
+  }
   &:hover {
     color: $blue;
     svg {
@@ -1127,21 +1198,20 @@ section {
     will-change: width;
   }
   svg {
-    transform: rotate(90deg) translateX(1px);
     transition: fill 300ms ease;
     margin-left: 6px;
   }
 
 }
 
-.owl-carousel {
+.swiper-container {
   transition: opacity 700ms ease;
-  &:not(.owl-loaded) {
+  &:not(.swiper-container-initialized) {
     opacity: 0;
     visibility: hidden;
   }
 
-  &.owl-loaded {
+  &.swiper-container-initialized {
     opacity: 1;
     visibility: visible;
   }
@@ -1152,8 +1222,16 @@ section {
   margin-top: 56px;
   margin-bottom: 42px;
   .blog-slider {
+    .swiper-slide {
+      opacity: .3;
+      pointer-events: none;
+      transition: opacity .4s cubic-bezier(.7,0,.3,1);
+    }
+    .swiper-slide-visible {
+      opacity: 1;
+      pointer-events: all;
+    }
     &_item {
-      max-width: 373px;
       text-decoration: none;
       display: flex;
       flex-direction: column;
@@ -1161,8 +1239,9 @@ section {
 
       &:hover {
         .blog-image_wrap {
-          img {
-            transform: scale(1.15);
+          transform: scale(0.95);
+          .blog-image {
+            transform: scale(1.2);
           }
         }
         .title {
@@ -1172,8 +1251,14 @@ section {
 
       .blog-image_wrap {
         overflow: hidden;
-        img {
-          transition: transform 300ms ease;
+        transition: transform 400ms linear;
+        .blog-image {
+          position: relative;
+          background-size: 100% auto ;
+          z-index: -1;
+          background-repeat: no-repeat;
+          height: 235px;
+          transition: transform 400ms ease;
         }
       }
 

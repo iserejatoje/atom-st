@@ -36,41 +36,37 @@ function mapInit() {
 }
 
 $(document).ready(function () {
-    let $blogSlider = $('.blog-slider');
+    console.log("%cCreated by Capstan, with ❤","color: #000; padding: 5px 0px 1px; border-bottom:2px solid #71d1c2;");
+
+    let $blogSlider = $('.blog-slider_wrap .swiper-container');
     $('[type="tel"]').mask('+7(000)000-0000');
 
     if ($blogSlider.length > 0) {
-        let owl = $blogSlider.owlCarousel({
-            responsiveClass: true,
-            lazyLoad: true,
-            dots: false,
-            startPosition: 1,
-            responsive:{
+        const swiperCases = new Swiper('.blog-slider_wrap .swiper-container', {
+            speed: 800,
+            watchSlidesVisibility: true,
+            preloadImages: false,
+            lazy: true,
+            navigation: {
+                nextEl: '.blog-slider_arrows .blog-next',
+                prevEl: '.blog-slider_arrows .blog-prev',
+            },
+            breakpoints: {
                 0: {
-                    items: 1,
-                    margin: 15,
-                    center: false,
-                    autoWidth: false,
-                    stagePadding: 15
+                    slidesPerView: 1,
+                    spaceBetween: 20
                 },
-                420: {
-                    margin: 70,
-                    center: true,
-                    autoWidth: true,
+                800: {
+                    slidesPerView: 2,
+                    spaceBetween: 15
                 },
-                2000: {
-                    margin: 70,
-                    center: true,
-                    autoWidth: true,
+                1124: {
+                    slidesPerView: 3,
+                    spaceBetween: 50
                 }
             }
         });
-        $('.blog-prev').click(function () {
-            owl.trigger('prev.owl.carousel');
-        });
-        $('.blog-next').click(function () {
-            owl.trigger('next.owl.carousel');
-        });
+
     }
 
     $('body')
@@ -86,5 +82,6 @@ $(document).ready(function () {
         })
         .on('click', '.form-close', function() {
             closeFeedbackForm();
-        })
+        });
+
 })
