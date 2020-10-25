@@ -75,6 +75,9 @@ body {
   font-family: "TT Norms", sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
+  .popup {
+    transition: transform .6s linear;
+  }
   &.feedback-open {
     overflow: hidden;
     .popup {
@@ -1049,7 +1052,6 @@ section {
 
 .popup {
   overflow-y: auto;
-  transition: transform .6s linear;
   position: fixed;
   left: 0;
   bottom: 0;
