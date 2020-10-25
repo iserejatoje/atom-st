@@ -95,6 +95,17 @@ $(document).ready(function () {
         })
         .on('click', '.form-close', function() {
             closeFeedbackForm();
+        })
+        .on('click', '.clear-search_input', function() {
+            $('.article-search_input').val('').focus();
+            $('.search-block_wrap').removeClass('active');
+        })
+        .on('input', '.article-search_input', function() {
+            if ($(this).val() !== '') {
+                $('.search-block_wrap').addClass('active');
+            } else {
+                $('.search-block_wrap').removeClass('active');
+            }
         });
 
 })

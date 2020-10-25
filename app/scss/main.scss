@@ -134,14 +134,100 @@ body {
   padding-top: ($header-padding * 2) + 64px;
 }
 
-.page-title {
-  @include respond(760px) {
-    font-size: 62px;
+.articles-search {
+
+  @include respond(836px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  @include respond(0, 760px) {
-    font-size: 48px;
+
+  .search-block {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    @include respond(836px) {
+      max-width: 595px;
+      margin-top: 10px;
+    }
+    @include respond(0, 836px) {
+      margin-top: 25px;
+    }
   }
-  font-weight: bold;
+
+  .search-icon {
+    width: 45px;
+    text-align: right;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      svg {
+        display: block;
+        fill: $blue;
+      }
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      margin: 0;
+      outline: none;
+      padding: 0;
+    }
+  }
+
+  .search-block_wrap {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    input {
+      height: 46px;
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 18px;
+      letter-spacing: 0.2px;
+      padding-left: 14px;
+    }
+    &.active {
+      .clear-search_input {
+        opacity: 1;
+      }
+    }
+    .clear-search_input {
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+      cursor: pointer;
+      &:hover {
+        svg {
+          fill: $blue;
+        }
+      }
+      svg {
+        display: block;
+        pointer-events: none;
+        fill: transparentize($dark-shade, .8);
+        transition: fill 250ms linear;
+      }
+    }
+  }
+
+}
+
+.page-title_block {
+
+  h1 {
+    margin: 0;
+    @include respond(760px) {
+      font-size: 62px;
+    }
+    @include respond(0, 760px) {
+      font-size: 48px;
+    }
+    font-weight: bold;
+  }
 
   @include respond(1170px) {
     margin: 95px 0 72px 0;

@@ -57,7 +57,26 @@
         <section class="articles">
 
             <div class="container">
-                <h1 class="page-title">Блог</h1>
+                <div class="page-title_block articles-search">
+                    <h1 class="page-title">Блог</h1>
+
+                    <div class="search-block">
+                        <div class="search-block_wrap active">
+                            <span class="clear-search_input">
+                                <svg width="16" height="16"><use xlink:href="app/img/sprite.svg#close-search"></use></svg>
+                            </span>
+                            <input type="text" class="article-search_input" value="Сенсибельный гед" placeholder="Поиск по статьям">
+                        </div>
+
+                        <div class="search-icon">
+                            <button type="submit">
+                                <svg width="27" height="27">
+                                    <use xlink:href="app/img/sprite.svg#zoom"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="articles-tags">
                     <a href="" class="active">Все статьи</a>
@@ -66,7 +85,6 @@
                     <a href="">Менеджмент</a>
                     <a href="">Бизнесу</a>
                 </div>
-
 
             </div>
             <div class="articles-wrap">
