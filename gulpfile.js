@@ -46,7 +46,7 @@ function svgs() {
                 mode: {
                     stack: {
                         sprite: "../sprite.svg"
-                    }
+                    },
                 },
             }
         ))

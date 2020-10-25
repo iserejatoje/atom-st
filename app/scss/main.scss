@@ -185,6 +185,7 @@ nav {
     border-radius: 50%;
     transform: translateY(6px);
     margin: 0 40px;
+
     @include respond(0, 760px) {
       display: none;
     }
@@ -192,8 +193,6 @@ nav {
       display: inline-block;
     }
   }
-
-
 
 }
 
@@ -289,75 +288,40 @@ nav {
 
 .striped {
   position: relative;
+  &:before {
+    background: inherit;
+  }
+  svg {
+    position: absolute;
+    z-index: 1;
+    left: -31px;
+    pointer-events: none;
+  }
   &_blue {
+    background: $blog-section-background;
     color: $blue;
-    &:before {
-      background: $blog-section-background;
-    }
-    &:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-blue) no-repeat;
+
+    svg {
+      fill: $blue;
     }
   }
   &_blue-on-white {
+    background: $white;
     color: $blue;
-    &:before {
-      background: $white;
-    }
-    &:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-blue) no-repeat;
+    svg {
+      fill: $blue;
     }
   }
   &_gray {
     &:before {
-      background: $white;
-    }
-    &:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe) no-repeat;
+      background: inherit;
     }
   }
   &_white {
+    background: $blue;
     color: $white;
-    &:before {
-      background: $blue;
-    }
-    &:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-white) no-repeat;
-    }
-  }
-  &_blue-on-white,
-  &_blue,
-  &_gray,
-  &_white {
-    @include respond(1280px) {
-      &:before {
-        content: '';
-        position: absolute;
-        width: 48px;
-        height: 22px;
-        z-index: 1;
-        display: block;
-        transform: rotate(45deg);
-        top: 38px;
-        left: -23px;
-        pointer-events: none;
-      }
-      &:after {
-        position: absolute;
-        content: '';
-        display: block;
-        top: 0;
-        left: -41px;
-        z-index: 2;
-        pointer-events: none;
-      }
+    svg {
+      fill: $white;
     }
   }
 }
@@ -496,7 +460,7 @@ nav {
     nav {
       .nav-link {
         color: $white;
-        transition: opacity 250ms linear;
+        transition: opacity 180ms linear;
 
         &.unactive {
           opacity: .4;
@@ -658,6 +622,10 @@ footer {
 }
 
 section {
+  &.how {
+    background: $white;
+    height: 860px;
+  }
   &.reviews {
 
     @include respond(760px) {
@@ -870,13 +838,41 @@ section {
   }
   &.home {
     background: $blue;
-    min-height: 100vh;
+    min-height: calc(100vh - 114px);
+
   }
 }
 
 .section-titlе {
   font-family: "TT Norms", sans-serif;
   margin-bottom: 37px;
+
+  @include respond(0, 1280px) {
+    display: block;
+    svg {
+      display: none;
+    }
+  }
+  @include respond(1280px) {
+    display: inline-block;
+    &:before {
+      content: '';
+      position: absolute;
+      width: 48px;
+      height: 22px;
+      z-index: 1;
+      display: block;
+      transform: rotate(45deg);
+      top: 38px;
+      left: -23px;
+      pointer-events: none;
+    }
+  }
+
+  svg {
+    position: absolute;
+  }
+
   @include respond(0, 1280px) {
     text-align: center;
   }
@@ -971,7 +967,7 @@ section {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.3px;
   line-height: 1.2;
   text-decoration: none;
   border-radius: 30px;
@@ -1103,7 +1099,7 @@ section {
     display: inline-block;
   }
 
-  svg {
+  .container-wild svg {
     display: block;
     fill: $white;
   }

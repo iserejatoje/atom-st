@@ -718,58 +718,30 @@ nav {
 
 .striped {
   position: relative; }
+  .striped:before {
+    background: inherit; }
+  .striped svg {
+    position: absolute;
+    z-index: 1;
+    left: -31px;
+    pointer-events: none; }
   .striped_blue {
+    background: #f2f3f5;
     color: #0b49c7; }
-    .striped_blue:before {
-      background: #f2f3f5; }
-    .striped_blue:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-blue) no-repeat; }
+    .striped_blue svg {
+      fill: #0b49c7; }
   .striped_blue-on-white {
+    background: #fff;
     color: #0b49c7; }
-    .striped_blue-on-white:before {
-      background: #fff; }
-    .striped_blue-on-white:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-blue) no-repeat; }
+    .striped_blue-on-white svg {
+      fill: #0b49c7; }
   .striped_gray:before {
-    background: #fff; }
-  .striped_gray:after {
-    width: 88px;
-    height: 85px;
-    background: url(../img/sprite.svg#stripe) no-repeat; }
+    background: inherit; }
   .striped_white {
+    background: #0b49c7;
     color: #fff; }
-    .striped_white:before {
-      background: #0b49c7; }
-    .striped_white:after {
-      width: 88px;
-      height: 85px;
-      background: url(../img/sprite.svg#stripe-white) no-repeat; }
-  @media only all and (min-width: 1280px) {
-    .striped_blue-on-white:before, .striped_blue:before, .striped_gray:before, .striped_white:before {
-      content: '';
-      position: absolute;
-      width: 48px;
-      height: 22px;
-      z-index: 1;
-      display: block;
-      -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-              transform: rotate(45deg);
-      top: 38px;
-      left: -23px;
-      pointer-events: none; }
-    .striped_blue-on-white:after, .striped_blue:after, .striped_gray:after, .striped_white:after {
-      position: absolute;
-      content: '';
-      display: block;
-      top: 0;
-      left: -41px;
-      z-index: 2;
-      pointer-events: none; } }
+    .striped_white svg {
+      fill: #fff; }
 
 .atom-phone {
   font-family: "TT Norms", sans-serif;
@@ -853,9 +825,9 @@ nav {
         fill: #fff; }
     .header-dark nav .nav-link {
       color: #fff;
-      -webkit-transition: opacity 250ms linear;
-      -o-transition: opacity 250ms linear;
-      transition: opacity 250ms linear; }
+      -webkit-transition: opacity 180ms linear;
+      -o-transition: opacity 180ms linear;
+      transition: opacity 180ms linear; }
       .header-dark nav .nav-link.unactive {
         opacity: .4; }
       .header-dark nav .nav-link:after {
@@ -979,6 +951,10 @@ footer {
   @media only all and (min-width: 1280px) {
     .feedback-form {
       padding: 128px 0 121px; } }
+
+section.how {
+  background: #fff;
+  height: 860px; }
 
 @media only all and (min-width: 760px) {
   section.reviews {
@@ -1190,11 +1166,34 @@ section.feedback {
 
 section.home {
   background: #0b49c7;
-  min-height: 100vh; }
+  min-height: calc(100vh - 114px); }
 
 .section-titlе {
   font-family: "TT Norms", sans-serif;
   margin-bottom: 37px; }
+  @media only all and (min-width: 0) and (max-width: 1279px) {
+    .section-titlе {
+      display: block; }
+      .section-titlе svg {
+        display: none; } }
+  @media only all and (min-width: 1280px) {
+    .section-titlе {
+      display: inline-block; }
+      .section-titlе:before {
+        content: '';
+        position: absolute;
+        width: 48px;
+        height: 22px;
+        z-index: 1;
+        display: block;
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+        top: 38px;
+        left: -23px;
+        pointer-events: none; } }
+  .section-titlе svg {
+    position: absolute; }
   @media only all and (min-width: 0) and (max-width: 1279px) {
     .section-titlе {
       text-align: center; } }
@@ -1284,7 +1283,7 @@ section.home {
   font-family: "TT Norms", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.3px;
   line-height: 1.2;
   text-decoration: none;
   border-radius: 30px;
@@ -1399,7 +1398,7 @@ section.home {
     position: relative; }
   .popup .atom-logo {
     display: inline-block; }
-  .popup svg {
+  .popup .container-wild svg {
     display: block;
     fill: #fff; }
   .popup .form-close {
