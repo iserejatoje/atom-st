@@ -1511,15 +1511,6 @@ section {
   margin-top: 56px;
   margin-bottom: 42px;
   .blog-slider {
-    .swiper-slide {
-      opacity: .3;
-      pointer-events: none;
-      transition: opacity .4s cubic-bezier(.7,0,.3,1);
-    }
-    .swiper-slide-visible {
-      opacity: 1;
-      pointer-events: all;
-    }
     &_item {
       text-decoration: none;
       display: flex;
