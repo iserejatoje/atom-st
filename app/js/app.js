@@ -69,13 +69,13 @@ $(document).ready(function () {
                     slidesPerView: 1,
                     spaceBetween: 20
                 },
-                800: {
+                900: {
                     slidesPerView: 2,
                     spaceBetween: 15
                 },
                 1124: {
                     slidesPerView: 3,
-                    spaceBetween: 50
+                    spaceBetween: 70
                 }
             }
         });

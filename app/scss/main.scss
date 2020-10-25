@@ -23,6 +23,13 @@ a {
   padding-right: $container-padding;
 }
 
+.container-medium {
+  max-width: $container-medium-width;
+  margin: 0 auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
 .checkbox {
   font-family: "TT Norms", sans-serif;
   font-size: 18px;
@@ -90,7 +97,6 @@ body {
 
 .blog-slider_arrows {
   display: flex;
-  left: 0;
   right: 0;
 
   @include respond(0, 520px) {
@@ -216,27 +222,6 @@ body {
 
 }
 
-.page-title_block {
-
-  h1 {
-    margin: 0;
-    @include respond(760px) {
-      font-size: 62px;
-    }
-    @include respond(0, 760px) {
-      font-size: 48px;
-    }
-    font-weight: bold;
-  }
-
-  @include respond(1170px) {
-    margin: 95px 0 72px 0;
-  }
-  @include respond(0, 1170px) {
-    margin: 20px 0 45px 0;
-  }
-}
-
 .articles-wrap {
 
   @include respond(0, 1306px) {
@@ -298,6 +283,7 @@ body {
         letter-spacing: 0.2px;
         .name {
           font-size: 18px;
+          font-weight: 500;
           color: $dark-shade;
           line-height: 1.3;
         }
@@ -571,9 +557,15 @@ nav {
   &_blue {
     background: $blog-background;
     color: $blue;
-
     svg {
       fill: $blue;
+    }
+  }
+  &_black {
+    background: $blog-background;
+    color: $dark-shade;
+    svg {
+      fill: $dark-shade;
     }
   }
   &_blue-on-white {
@@ -904,6 +896,49 @@ footer {
 }
 
 section {
+  &.article {
+    margin: 95px 0 0 0;
+    h1 {
+      color: $blue;
+      font-size: 48px;
+      font-weight: bold;
+      line-height: 1.229;
+    }
+    .article-content {
+      padding-bottom: 170px;
+    }
+    .date {
+      font-size: 18px;
+      letter-spacing: 0.25px;
+      a {
+        color: $dark-shade;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+  }
+  &.articles {
+    .page-title_block {
+
+      h1 {
+        margin: 0;
+        @include respond(760px) {
+          font-size: 62px;
+        }
+        @include respond(0, 760px) {
+          font-size: 48px;
+        }
+        font-weight: bold;
+      }
+
+      @include respond(1170px) {
+        margin: 95px 0 72px 0;
+      }
+      @include respond(0, 1170px) {
+        margin: 20px 0 45px 0;
+      }
+    }
+  }
   &.how {
     background: $white;
     height: 860px;
@@ -965,8 +1000,15 @@ section {
     .swiper-container {
       overflow: visible;
     }
-    @include respond(520px) {
-      padding: 100px 0 120px 0;
+    &-index {
+      @include respond(520px) {
+        padding: 100px 0 120px 0;
+      }
+    }
+    &-article {
+      @include respond(520px) {
+        padding: 116px 0 120px 0;
+      }
     }
     @include respond(0, 520px) {
       padding: 40px 0 50px 0;
@@ -1506,9 +1548,19 @@ section {
   }
 }
 
+.blog-index {
+  .blog-slider_wrap {
+    margin-top: 56px;
+  }
+}
+.blog-article {
+  .blog-slider_wrap {
+    margin-top: 38px;
+  }
+}
+
 .blog-slider_wrap {
   min-height: 442px;
-  margin-top: 56px;
   margin-bottom: 42px;
   .blog-slider {
     &_item {
@@ -1521,7 +1573,7 @@ section {
         .blog-image_wrap {
           transform: scale(0.94);
           .blog-image {
-            transform: scale(1.3);
+            transform: scale(1.22);
           }
         }
         .title {
@@ -1530,14 +1582,16 @@ section {
       }
 
       .blog-image_wrap {
+        height: 235px;
         overflow: hidden;
         transition: transform 400ms linear;
         .blog-image {
           position: relative;
-          background-size: 100% auto ;
+          background-size: cover;
+          background-position: center;
           z-index: -1;
+          height: 100%;
           background-repeat: no-repeat;
-          height: 235px;
           transition: transform 550ms ease;
         }
       }
