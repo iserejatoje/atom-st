@@ -75,12 +75,10 @@ body {
   font-family: "TT Norms", sans-serif;
   box-sizing: border-box;
   overflow-x: hidden;
-  .popup {
-    transition: transform .6s linear;
-  }
   &.feedback-open {
     overflow: hidden;
     .popup {
+      transition: transform .6s linear;
       transform: translateX(0);
     }
   }

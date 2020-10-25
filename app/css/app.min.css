@@ -516,15 +516,14 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow-x: hidden; }
-  body .popup {
-    -webkit-transition: -webkit-transform .6s linear;
-    transition: -webkit-transform .6s linear;
-    -o-transition: transform .6s linear;
-    transition: transform .6s linear;
-    transition: transform .6s linear, -webkit-transform .6s linear; }
   body.feedback-open {
     overflow: hidden; }
     body.feedback-open .popup {
+      -webkit-transition: -webkit-transform .6s linear;
+      transition: -webkit-transform .6s linear;
+      -o-transition: transform .6s linear;
+      transition: transform .6s linear;
+      transition: transform .6s linear, -webkit-transform .6s linear;
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
               transform: translateX(0); }
