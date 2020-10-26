@@ -1218,6 +1218,9 @@ footer {
     .feedback-form {
       padding: 128px 0 121px; } }
 
+.article-image {
+  width: 100%; }
+
 section.article {
   margin: 95px 0 0 0; }
   section.article .author {
