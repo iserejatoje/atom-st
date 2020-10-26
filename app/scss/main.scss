@@ -901,10 +901,22 @@ footer {
 
 section {
   &.article {
-    margin: 95px 0 0 0;
+    @include respond(940px) {
+      margin: 95px 0 0 0;
+    }
+    @include respond(0, 940px) {
+      margin: 25px 0 0 0;
+    }
     .author {
       display: flex;
-      margin-bottom: 80px;
+
+      @include respond(940px) {
+        margin-bottom: 80px;
+      }
+      @include respond(0, 940px) {
+        margin-bottom: 40px;
+      }
+
       .author-info {
         letter-spacing: 0.2px;
         padding-top: 6px;
@@ -928,10 +940,16 @@ section {
     }
     h1 {
       color: $blue;
-      font-size: 48px;
       font-weight: bold;
       line-height: 1.229;
       margin: 28px 0 40px 0;
+
+      @include respond(940px) {
+        font-size: 48px;
+      }
+      @include respond(0, 940px) {
+        font-size: 32px;
+      }
     }
     .article-content {
       padding-top: 40px;
@@ -950,7 +968,9 @@ section {
       color: $dark-shade;
       line-height: 1.524;
       letter-spacing: 0.2px;
-      padding-right: 100px;
+      @include respond(940px) {
+        padding-right: 100px;
+      }
       a {
         color: $blue;
         text-decoration: none;
@@ -1064,6 +1084,14 @@ section {
   &.how {
     background: $white;
     height: 860px;
+
+    .last {
+      padding: 50px 0;
+      svg {
+        width: 900px;
+        height: 933px;
+      }
+    }
   }
   &.reviews {
 
@@ -1128,8 +1156,11 @@ section {
       }
     }
     &-article {
-      @include respond(520px) {
+      @include respond(640px) {
         padding: 116px 0 120px 0;
+      }
+      @include respond(0, 640px) {
+        padding: 116px 0 80px 0;
       }
     }
     @include respond(0, 520px) {
@@ -1682,8 +1713,11 @@ section {
 }
 
 .blog-slider_wrap {
-  min-height: 442px;
-  margin-bottom: 42px;
+  @include respond(940px) {
+    min-height: 442px;
+    margin-bottom: 42px;
+  }
+
   .blog-slider {
     &_item {
       text-decoration: none;
