@@ -898,14 +898,132 @@ footer {
 section {
   &.article {
     margin: 95px 0 0 0;
+    .author {
+      display: flex;
+      margin-bottom: 80px;
+      .author-info {
+        letter-spacing: 0.2px;
+        padding-top: 6px;
+      }
+      .name {
+        font-weight: 500;
+        font-size: 21px;
+        margin-bottom: 5px;
+      }
+      .role {
+        font-size: 18px;
+        color: transparentize($dark-shade, .5);
+      }
+      &-image {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 22px;
+      }
+    }
     h1 {
       color: $blue;
       font-size: 48px;
       font-weight: bold;
       line-height: 1.229;
+      margin: 28px 0 40px 0;
     }
     .article-content {
+      padding-top: 40px;
       padding-bottom: 170px;
+    }
+    .article-inner {
+      padding-bottom: 170px;
+    }
+    .article-island {
+      position: absolute;
+      right: 0;
+    }
+    .article-text {
+      position: relative;
+      font-size: 21px;
+      color: $dark-shade;
+      line-height: 1.524;
+      letter-spacing: 0.2px;
+      padding-right: 100px;
+      a {
+        color: $blue;
+        text-decoration: none;
+        display: inline;
+        font-weight: 500;
+        border-bottom: 1px solid;
+        transition: border-color 150ms linear;
+        &:hover {
+          border-color: transparent;
+        }
+      }
+      p {
+        margin-bottom: 33px;
+
+        img {
+          width: 100%;
+          display: block;
+          margin: 50px 0;
+        }
+      }
+      ol {
+        counter-reset: num;
+        list-style: none;
+        margin: 0;
+        padding-left: 40px;
+        li {
+          counter-increment: num;
+          position: relative;
+          &:not(:last-child) {
+            margin-bottom: 22px;
+          }
+        }
+        li:before {
+          font-size: 20px;
+          position: absolute;
+          content: counter(num);
+          font-weight: bold;
+          color: $blue;
+          left: -40px;
+          top: 2px;
+        }
+        li:nth-child(-n+9):before {
+          content: "0" counter(num);
+        }
+      }
+      b {
+        font-weight: 500;
+      }
+      ul {
+        padding: 0 0 0 42px;
+        margin: 0 0 36px 0;
+
+        list-style: none;
+        li {
+          position: relative;
+          &:not(:last-child) {
+            margin-bottom: 22px;
+          }
+          &:before {
+            content: '';
+            left: -42px;
+            top: 11px;
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 2px solid $blue;
+            border-radius: 50%;
+          }
+        }
+      }
+      h2 {
+        font-size: 27px;
+        color: $dark-shade;
+        margin-top: 47px;
+        font-weight: bold;
+        line-height: 1.926;
+      }
     }
     .date {
       font-size: 18px;

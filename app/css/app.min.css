@@ -1220,13 +1220,110 @@ footer {
 
 section.article {
   margin: 95px 0 0 0; }
+  section.article .author {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 80px; }
+    section.article .author .author-info {
+      letter-spacing: 0.2px;
+      padding-top: 6px; }
+    section.article .author .name {
+      font-weight: 500;
+      font-size: 21px;
+      margin-bottom: 5px; }
+    section.article .author .role {
+      font-size: 18px;
+      color: rgba(34, 43, 61, 0.5); }
+    section.article .author-image {
+      width: 60px;
+      height: 60px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin-right: 22px; }
   section.article h1 {
     color: #0b49c7;
     font-size: 48px;
     font-weight: bold;
-    line-height: 1.229; }
+    line-height: 1.229;
+    margin: 28px 0 40px 0; }
   section.article .article-content {
+    padding-top: 40px;
     padding-bottom: 170px; }
+  section.article .article-inner {
+    padding-bottom: 170px; }
+  section.article .article-island {
+    position: absolute;
+    right: 0; }
+  section.article .article-text {
+    position: relative;
+    font-size: 21px;
+    color: #222b3d;
+    line-height: 1.524;
+    letter-spacing: 0.2px;
+    padding-right: 100px; }
+    section.article .article-text a {
+      color: #0b49c7;
+      text-decoration: none;
+      display: inline;
+      font-weight: 500;
+      border-bottom: 1px solid;
+      -webkit-transition: border-color 150ms linear;
+      -o-transition: border-color 150ms linear;
+      transition: border-color 150ms linear; }
+      section.article .article-text a:hover {
+        border-color: transparent; }
+    section.article .article-text p {
+      margin-bottom: 33px; }
+      section.article .article-text p img {
+        width: 100%;
+        display: block;
+        margin: 50px 0; }
+    section.article .article-text ol {
+      counter-reset: num;
+      list-style: none;
+      margin: 0;
+      padding-left: 40px; }
+      section.article .article-text ol li {
+        counter-increment: num;
+        position: relative; }
+        section.article .article-text ol li:not(:last-child) {
+          margin-bottom: 22px; }
+      section.article .article-text ol li:before {
+        font-size: 20px;
+        position: absolute;
+        content: counter(num);
+        font-weight: bold;
+        color: #0b49c7;
+        left: -40px;
+        top: 2px; }
+      section.article .article-text ol li:nth-child(-n+9):before {
+        content: "0" counter(num); }
+    section.article .article-text b {
+      font-weight: 500; }
+    section.article .article-text ul {
+      padding: 0 0 0 42px;
+      margin: 0 0 36px 0;
+      list-style: none; }
+      section.article .article-text ul li {
+        position: relative; }
+        section.article .article-text ul li:not(:last-child) {
+          margin-bottom: 22px; }
+        section.article .article-text ul li:before {
+          content: '';
+          left: -42px;
+          top: 11px;
+          position: absolute;
+          width: 8px;
+          height: 8px;
+          border: 2px solid #0b49c7;
+          border-radius: 50%; }
+    section.article .article-text h2 {
+      font-size: 27px;
+      color: #222b3d;
+      margin-top: 47px;
+      font-weight: bold;
+      line-height: 1.926; }
   section.article .date {
     font-size: 18px;
     letter-spacing: 0.25px; }
