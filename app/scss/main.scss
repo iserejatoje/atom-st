@@ -140,7 +140,7 @@ body {
   padding-top: ($header-padding * 2) + 64px;
 }
 
-.articles-search {
+.search-block {
 
   @include respond(836px) {
     display: flex;
@@ -222,7 +222,7 @@ body {
 
 }
 
-.articles-wrap {
+.cards-wrap {
 
   @include respond(0, 1306px) {
     margin-top: 23px;
@@ -234,7 +234,7 @@ body {
     margin-bottom: -30px;
   }
 
-  .articles-list {
+  .cards-list {
     display: grid;
 
     @include respond(836px) {
@@ -264,7 +264,12 @@ body {
     }
   }
 
-  .article-cart {
+  .cards-item {
+    &:hover {
+      .cards-popup {
+        opacity: 1;
+      }
+    }
     .article-info {
       display: flex;
       flex-direction: column;
@@ -343,11 +348,50 @@ body {
       }
     }
   }
-
+  &.paddings {
+    .image-wrap {
+      margin-bottom: 35px;
+    }
+  }
   .image-wrap {
     display: block;
     overflow: hidden;
-    margin-bottom: 35px;
+    position: relative;
+    .cards-popup {
+      position: absolute;
+      color: $white;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      background: transparentize($blue, .25);
+      display: flex;
+      flex-direction: column;
+      transition: opacity 250ms linear;
+      @include respond(1120px) {
+        padding: 75px 70px;
+      }
+      @include respond(0, 1120px) {
+        padding: 35px 40px;
+      }
+      opacity: 0;
+      .title {
+        color: $white;
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+      .description {
+        font-size: 18px;
+        line-height: 1.524;
+        margin-top: auto;
+      }
+      .category {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+    }
     img {
       transition: transform 250ms linear;
       display: block;
@@ -356,7 +400,7 @@ body {
   }
 }
 
-.articles-tags {
+.tags {
   a {
     @include respond(1170px) {
       font-size: 28px;
@@ -385,15 +429,14 @@ body {
 
 .atom-inner {
   flex: 1 0 auto;
-
   .feedback-image {
 
     &.atom-image_subscribe {
-      top: 69px;
+      top: -6px;
     }
 
     &:not(.atom-image_subscribe) {
-      top: 107px;
+      top: 35px;
     }
 
     @include respond(1740px) {
@@ -899,6 +942,21 @@ footer {
   width: 100%;
 }
 
+.relative {
+  position: relative;
+}
+
+h1 {
+  margin: 0;
+  @include respond(760px) {
+    font-size: 62px;
+  }
+  @include respond(0, 760px) {
+    font-size: 48px;
+  }
+  font-weight: bold;
+}
+
 section {
   &.article {
     @include respond(940px) {
@@ -952,15 +1010,65 @@ section {
       }
     }
     .article-content {
-      padding-top: 40px;
-      padding-bottom: 170px;
+      @include respond(940px) {
+        padding-top: 40px;
+        padding-bottom: 170px;
+      }
+      @include respond(0, 940px) {
+        padding-top: 40px;
+        padding-bottom: 70px;
+      }
     }
     .article-inner {
       padding-bottom: 170px;
     }
     .article-island {
-      position: absolute;
-      right: 0;
+      @include respond(0, 940px) {
+        margin-top: 40px;
+      }
+      @include respond(940px) {
+        position: absolute;
+        display: inline-block;
+        width: 33px;
+        right: $container-padding;
+      }
+      &.end {
+        bottom: 0;
+      }
+      &.fixed {
+        .reply {
+          @include respond(940px) {
+            position: fixed;
+            width: 33px;
+            top: 174px;
+            z-index: 2;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+        border-bottom: none;
+        outline: 0;
+        display: inline-block;
+        &:not(:last-child) {
+          @include respond(940px) {
+            margin-bottom: 30px;
+          }
+          @include respond(0, 940px) {
+            margin-right: 30px;
+          }
+        }
+        &:hover {
+          svg {
+            fill: $blue;
+          }
+        }
+      }
+      svg {
+        display: block;
+        transition: fill 300ms ease;
+        fill: $social-icon;
+      }
     }
     .article-text {
       position: relative;
@@ -1059,26 +1167,13 @@ section {
       }
     }
   }
-  &.articles {
-    .page-title_block {
+  .page-title_block {
 
-      h1 {
-        margin: 0;
-        @include respond(760px) {
-          font-size: 62px;
-        }
-        @include respond(0, 760px) {
-          font-size: 48px;
-        }
-        font-weight: bold;
-      }
-
-      @include respond(1170px) {
-        margin: 95px 0 72px 0;
-      }
-      @include respond(0, 1170px) {
-        margin: 20px 0 45px 0;
-      }
+    @include respond(1170px) {
+      margin: 95px 0 72px 0;
+    }
+    @include respond(0, 1170px) {
+      margin: 20px 0 45px 0;
     }
   }
   &.how {
@@ -1090,6 +1185,20 @@ section {
       svg {
         width: 900px;
         height: 933px;
+      }
+    }
+  }
+  &.portfolio {
+    .cards-list {
+      @include respond(0, 836px) {
+        grid-gap: 25px;
+      }
+    }
+    .cards-item {
+      &:nth-child(even) {
+        @include respond(1120px) {
+          transform: translateY(45px);
+        }
       }
     }
   }

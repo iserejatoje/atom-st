@@ -39,6 +39,7 @@ $(document).ready(function () {
 
     console.log("%cCreated by Sergey Valitov, with ❤","color: #000; padding: 5px 0px 1px; border-bottom:2px solid #71d1c2;");
 
+
     $('.header-dark .nav-link')
         .hover(function() {
             $(this).removeClass('unactive').siblings().addClass('unactive');
