@@ -522,6 +522,14 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow-x: hidden; }
+  body:not(.feedback-open) {
+    overflow: hidden; }
+    body:not(.feedback-open) .popup {
+      -webkit-transition: -webkit-transform .6s linear;
+      transition: -webkit-transform .6s linear;
+      -o-transition: transform .6s linear;
+      transition: transform .6s linear;
+      transition: transform .6s linear, -webkit-transform .6s linear; }
   body.feedback-open {
     overflow: hidden; }
     body.feedback-open .popup {
