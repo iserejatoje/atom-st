@@ -76,6 +76,7 @@ input {
 html,
 body {
   height: 100%;
+  font-variant-ligatures: none;
 }
 
 body {
@@ -95,7 +96,7 @@ body {
   position: relative;
 }
 
-.blog-slider_arrows {
+.slider-arrows {
   display: flex;
   right: 0;
 
@@ -108,8 +109,8 @@ body {
     bottom: 45px;
   }
 
-  .blog-prev,
-  .blog-next {
+  .slider-prev,
+  .slider-next {
     outline: 0;
     cursor: pointer;
     svg {
@@ -123,7 +124,7 @@ body {
       }
     }
   }
-  .blog-prev {
+  .slider-prev {
     margin-right: 35px;
     svg {
       transform: rotate(180deg);
@@ -229,7 +230,7 @@ body {
   }
 
   @include respond(1306px) {
-    background: $blog-background;
+    background: $gray-background;
     margin-top: 237px;
     margin-bottom: -30px;
   }
@@ -238,7 +239,7 @@ body {
     display: grid;
 
     @include respond(836px) {
-      grid-template-columns: minmax(100px, auto) minmax(100px, auto);
+      grid-template-columns: minmax(100px, 595px) minmax(100px, 595px);
     }
     @include respond(0, 836px) {
       grid-template-columns: 1fr;
@@ -598,14 +599,14 @@ nav {
     pointer-events: none;
   }
   &_blue {
-    background: $blog-background;
+    background: $gray-background;
     color: $blue;
     svg {
       fill: $blue;
     }
   }
   &_black {
-    background: $blog-background;
+    background: $gray-background;
     color: $dark-shade;
     svg {
       fill: $dark-shade;
@@ -958,6 +959,18 @@ h1 {
 }
 
 section {
+  &.services {
+    @include respond(520px) {
+      padding: 110px 0 135px 0;
+    }
+    @include respond(0, 520px) {
+      padding: 40px 0 50px 0;
+    }
+    background: $gray-background;
+    .swiper-container {
+      overflow: visible;
+    }
+  }
   &.article {
     @include respond(940px) {
       margin: 95px 0 0 0;
@@ -1254,7 +1267,7 @@ section {
     }
   }
   &.blog {
-    background: $blog-background;
+    background: $gray-background;
     overflow-x: hidden;
     .swiper-container {
       overflow: visible;
@@ -1364,7 +1377,6 @@ section {
           font-weight: bold;
           color: $blue;
           text-decoration: none;
-          font-variant-ligatures: none;
           position: relative;
           display: inline-block;
           line-height: 1.55;
@@ -1747,6 +1759,11 @@ section {
   line-height: 32px;
 }
 
+.text-content {
+  font-size: 18px;
+  line-height: 28px;
+}
+
 .link-hand {
   font-size: 16px;
   white-space: nowrap;
@@ -1758,6 +1775,8 @@ section {
   letter-spacing: .2px;
   position: relative;
   transition: color 300ms ease;
+  will-change: transform;
+
   &:not(&_download) {
     svg {
       transform: translateY(2px);
@@ -1821,10 +1840,99 @@ section {
   }
 }
 
+.services-slider_wrap {
+  @include respond(520px) {
+    margin-bottom: 50px;
+  }
+  @include respond(0, 520px) {
+    margin-bottom: 28px;
+  }
+  margin-top: 24px;
+
+  .service-number {
+    font-family: "TT Norms", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: $light-gray;
+    .current {
+      color: $blue;
+    }
+  }
+
+  .services-slider_item {
+    text-decoration: none;
+    background: $white;
+    padding: 62px 15px 35px 50px;
+    box-sizing: border-box;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      font-size: 18px;
+      color: $dark-shade;
+      margin-top: 38px;
+      ul {
+        padding-right: 50px;
+        margin: 0;
+      }
+      ul,
+      li {
+        padding: 0;
+        list-style: none;
+      }
+      li {
+        margin-bottom: 14px;
+        line-height: 1.5;
+      }
+    }
+
+    .service-slider_wrap {
+      flex: 1;
+    }
+
+    .service-icon {
+      position: absolute;
+      display: block;
+      min-width: 102px;
+      max-width: 102px;
+      width: 100%;
+      left: 17px;
+      top: -11px;
+      svg {
+        display: block;
+        width: 100%;
+        fill: $blue;
+      }
+      font-size: 100px;
+      font-weight: bold;
+    }
+
+    .service-heading {
+      display: flex;
+    }
+
+    .title {
+      font-size: 28px;
+      font-family: "TT Norms", sans-serif;
+      color: $blue;
+      font-weight: bold;
+      line-height: 1.214;
+      max-width: 230px;
+      margin-left: 80px;
+      min-height: 66px;
+      display: inline-block;
+    }
+  }
+
+
+}
+
 .blog-slider_wrap {
+  margin-bottom: 42px;
+
   @include respond(940px) {
     min-height: 442px;
-    margin-bottom: 42px;
   }
 
   .blog-slider {
@@ -1836,7 +1944,6 @@ section {
 
       &:hover {
         .blog-image_wrap {
-          transform: scale(0.94);
           .blog-image {
             transform: scale(1.22);
           }

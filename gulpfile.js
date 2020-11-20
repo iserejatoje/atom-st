@@ -75,7 +75,7 @@ function styles() {
         .pipe(sass())
         .pipe(concat(paths.cssOutputName))
         .pipe(autoprefixer({overrideBrowserslist: ['last 10 versions'], grid: true}))
-        // .pipe(cleancss({level: {1: {specialComments: 0}}}))
+        .pipe(cleancss({level: {1: {specialComments: 0}}}))
         .pipe(dest(paths.styles.dest))
         .pipe(browserSync.stream())
 }
