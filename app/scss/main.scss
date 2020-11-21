@@ -1457,6 +1457,7 @@ section {
       .picture {
         flex: 1;
       }
+
       .content {
         flex: 1;
         .title {
@@ -1464,6 +1465,14 @@ section {
           color: $white;
           font-weight: bold;
           line-height: 1.194;
+        }
+        .excerpt {
+          color: $white;
+          margin-top: 24px;
+          letter-spacing: .2px;
+          font-size: 21px;
+          line-height: 1.524;
+          max-width: 518px;
         }
       }
     }
