@@ -1448,6 +1448,24 @@ section {
 
     .home-slider {
       flex: 1;
+      padding-top: 165px;
+
+      .home-slider_inner {
+        display: flex;
+      }
+
+      .picture {
+        flex: 1;
+      }
+      .content {
+        flex: 1;
+        .title {
+          font-size: 62px;
+          color: $white;
+          font-weight: bold;
+          line-height: 1.194;
+        }
+      }
     }
 
     .progress-value {
