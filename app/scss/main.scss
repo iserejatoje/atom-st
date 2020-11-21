@@ -1456,6 +1456,13 @@ section {
 
       .picture {
         flex: 1;
+        position: relative;
+
+        img {
+          position: absolute;
+          right: -278px;
+          top: -40px;
+        }
       }
 
       .content {
@@ -1473,6 +1480,7 @@ section {
           font-size: 21px;
           line-height: 1.524;
           max-width: 518px;
+          margin-bottom: 41px;
         }
       }
     }
