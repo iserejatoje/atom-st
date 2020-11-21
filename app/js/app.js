@@ -128,6 +128,11 @@ $(document).ready(function () {
             $('.article-search_input').val('').focus();
             $('.search-block_wrap').removeClass('active');
         })
+        .on('click', '.navigation-item', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            return false;
+
+        })
         .on('input', '.article-search_input', function() {
             if ($(this).val() !== '') {
                 $('.search-block_wrap').addClass('active');

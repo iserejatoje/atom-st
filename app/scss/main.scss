@@ -960,6 +960,7 @@ h1 {
 
 section {
   &.services {
+    overflow-x: hidden;
     @include respond(520px) {
       padding: 110px 0 135px 0;
     }
@@ -1437,6 +1438,101 @@ section {
   &.home {
     background: $blue;
     min-height: calc(100vh - 114px);
+    display: flex;
+    flex-direction: column;
+
+    .home-inner {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-slider {
+      flex: 1;
+    }
+
+    .progress-value {
+      stroke-dasharray: 138.23008;
+      stroke-dashoffset: -138.23008;
+      opacity: 0;
+      transition: stroke-dashoffset 0s linear .2s, opacity .2s linear;
+    }
+
+    .navigation {
+      display: flex;
+      padding: 68px 0;
+    }
+
+    .navigation-item {
+      &:not(:last-child) {
+        margin-right: 75px;
+      }
+
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      color: $white;
+      .icon-label {
+        margin-left: 13px;
+        font-size: 18px;
+      }
+      .icon {
+        position: relative;
+        display: inline-block;
+      }
+      .icon:after {
+        content: '';
+        position: absolute;
+        margin: auto;
+      }
+      &:nth-child(1) .icon:after {
+        width: 22px;
+        height: 22px;
+        left: 12px;
+        top: 12px;
+        background: url(../img/sprite.svg#home-icon-1) no-repeat center;
+      }
+      &:nth-child(2) .icon:after {
+        width: 22px;
+        height: 27px;
+        left: 12px;
+        top: 10px;
+        background: url(../img/sprite.svg#home-icon-2) no-repeat 0 -1px;
+      }
+      &:nth-child(3) .icon:after {
+        width: 21px;
+        height: 21px;
+        left: 13px;
+        top: 12px;
+        background: url(../img/sprite.svg#home-icon-3) no-repeat 0 -1px;
+      }
+      &:nth-child(4) .icon:after {
+        width: 23px;
+        height: 23px;
+        left: 12px;
+        top: 12px;
+        background: url(../img/sprite.svg#home-icon-4) no-repeat 1px -1px;
+      }
+      svg {
+        fill: $white;
+        display: block;
+      }
+    }
+
+    .active {
+
+      .icon-label {
+        font-weight: bold;
+      }
+
+      .progress-value {
+        stroke-dashoffset: 0;
+        opacity: 1;
+        transition-duration: 8s, .5s;
+        transition-delay: 0s, 0s;
+      }
+    }
 
   }
 }
@@ -1998,3 +2094,4 @@ section {
     }
   }
 }
+
