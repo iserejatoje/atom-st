@@ -1463,17 +1463,19 @@ section {
     }
 
     .navigation-item {
-      &:not(:last-child) {
-        margin-right: 75px;
-      }
 
       text-decoration: none;
       position: relative;
       cursor: pointer;
       display: flex;
       align-items: center;
-      color: $white;
+
+      &:not(:last-child) {
+        margin-right: 75px;
+      }
+
       .icon-label {
+        color: $white;
         margin-left: 13px;
         font-size: 18px;
       }
