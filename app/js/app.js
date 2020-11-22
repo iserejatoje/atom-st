@@ -114,7 +114,6 @@ $(document).ready(function () {
     let $homeSlider = $('.home-slider_block');
     let $mainSlider;
 
-    const $sliderTitles = ['Сайты', 'Продвижение', 'Брендинг', 'Автоматизация']
     if ($homeSlider.length > 0) {
         $mainSlider = new Swiper('.home-slider_block .swiper-container', {
             speed: 400,

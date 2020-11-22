@@ -1440,6 +1440,7 @@ section {
     min-height: calc(100vh - 114px);
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 
     .home-inner {
       display: flex;
