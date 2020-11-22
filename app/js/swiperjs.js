@@ -1503,6 +1503,7 @@
         },
         init: function init() {
             var swiper = this;
+
             if (!swiper.support.observer || !swiper.params.observer) return;
 
             if (swiper.params.observeParents) {

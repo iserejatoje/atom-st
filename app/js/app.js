@@ -114,19 +114,16 @@ $(document).ready(function () {
     let $homeSlider = $('.home-slider_block');
     let $mainSlider;
 
+    const $sliderTitles = ['Сайты', 'Продвижение', 'Брендинг', 'Автоматизация']
     if ($homeSlider.length > 0) {
         $mainSlider = new Swiper('.home-slider_block .swiper-container', {
             speed: 400,
-            watchSlidesVisibility: true,
-            preloadImages: false,
-            lazy: true,
+            watchSlidesVisibility: false,
             slidesPerView: 1,
             virtualTranslate: true,
-            waitForTransition: false,
-
             autoplay: {
                 delay: 8000,
-                disableOnInteraction: true
+                disableOnInteraction: false
             },
             on: {
                 transitionStart: function() {
@@ -139,7 +136,7 @@ $(document).ready(function () {
             fadeEffect: {
                 crossFade: true
             },
-            effect: "fade"
+            effect: "fade",
         });
     }
 
@@ -162,7 +159,7 @@ $(document).ready(function () {
             $('.search-block_wrap').removeClass('active');
         })
         .on('click', '.navigation-item', function() {
-            $mainSlider.slideTo($(this).index());
+            $mainSlider.slideToLoop($(this).index());
             $(this).addClass('active').siblings().removeClass('active');
             return false;
 
