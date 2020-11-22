@@ -56,8 +56,9 @@ $(document).ready(function () {
 
     let $blogSlider = $('.blog-slider_wrap .swiper-container');
     let $serviceSlider = $('.services-slider_wrap .swiper-container');
+
     if ($blogSlider.length > 0) {
-        const swiperCases = new Swiper('.blog-slider_wrap .swiper-container', {
+        new Swiper('.blog-slider_wrap .swiper-container', {
             speed: 600,
             watchSlidesVisibility: true,
             preloadImages: false,
@@ -84,7 +85,7 @@ $(document).ready(function () {
     }
 
     if ($serviceSlider.length > 0) {
-        const swiperCases = new Swiper('.services-slider_wrap .swiper-container', {
+        new Swiper('.services-slider_wrap .swiper-container', {
             speed: 600,
             watchSlidesVisibility: true,
             preloadImages: false,
@@ -110,6 +111,38 @@ $(document).ready(function () {
         });
     }
 
+    let $homeSlider = $('.home-slider_block');
+    let $mainSlider;
+
+    if ($homeSlider.length > 0) {
+        $mainSlider = new Swiper('.home-slider_block .swiper-container', {
+            speed: 400,
+            watchSlidesVisibility: true,
+            preloadImages: false,
+            lazy: true,
+            slidesPerView: 1,
+            virtualTranslate: true,
+            waitForTransition: false,
+
+            autoplay: {
+                delay: 8000,
+                disableOnInteraction: true
+            },
+            on: {
+                transitionStart: function() {
+                    $('.navigation .navigation-item').eq($mainSlider.activeIndex).addClass('active').siblings().removeClass('active');
+                },
+                init: function () {
+                    $('.navigation .navigation-item:nth-child(1)').addClass('active');
+                },
+            },
+            fadeEffect: {
+                crossFade: true
+            },
+            effect: "fade"
+        });
+    }
+
     $('body')
         .on('focus', '.input-wrap_placeholder input', function () {
             $(this).parent().addClass('active');
@@ -129,6 +162,7 @@ $(document).ready(function () {
             $('.search-block_wrap').removeClass('active');
         })
         .on('click', '.navigation-item', function() {
+            $mainSlider.slideTo($(this).index());
             $(this).addClass('active').siblings().removeClass('active');
             return false;
 
@@ -140,5 +174,6 @@ $(document).ready(function () {
                 $('.search-block_wrap').removeClass('active');
             }
         });
+
 
 })

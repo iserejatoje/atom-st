@@ -1450,7 +1450,36 @@ section {
       flex: 1;
       padding-top: 165px;
 
-      .home-slider_inner {
+      .swiper-container {
+        overflow: visible;
+      }
+
+      .swiper-slide {
+
+        .picture,
+        .content {
+          transition: transform 300ms linear;
+        }
+
+        &.swiper-slide-active {
+          .picture {
+            transform: translateX(0);
+          }
+          .content {
+            transform: translateX(0);
+          }
+        }
+        &:not(.swiper-slide-active) {
+          .picture {
+            transform: translateX(110px);
+          }
+          .content {
+            transform: translateX(-110px);
+          }
+        }
+      }
+
+      .home-slider_item {
         display: flex;
       }
 
