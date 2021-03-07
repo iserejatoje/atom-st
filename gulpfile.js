@@ -54,17 +54,9 @@ function svgs() {
 }
 
 function scripts() {
-    return src(paths.scripts.src)
+    return src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', baseDir + '/js/jquery.mask.min.js', baseDir + '/js/swiperjs.js', baseDir + '/js/app.js'])
         .pipe(concat(paths.jsOutputName))
-        .pipe(uglify())
-        .pipe(dest(paths.scripts.dest))
-        .pipe(browserSync.stream())
-}
-
-function production_scripts() {
-    return src(['node_modules/jquery/dist/jquery.min.js', 'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js', baseDir + '/jquery.mask.min.js', baseDir + '/swiperjs.js', baseDir + '/js/app.js'])
-        .pipe(concat(paths.jsOutputName))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(dest(paths.scripts.dest))
         .pipe(browserSync.stream())
 }
@@ -74,8 +66,8 @@ function styles() {
         .pipe(newer(paths.styles.dest))
         .pipe(sass())
         .pipe(concat(paths.cssOutputName))
-        .pipe(autoprefixer({overrideBrowserslist: ['last 10 versions'], grid: true}))
-        .pipe(cleancss({level: {1: {specialComments: 0}}}))
+        // .pipe(autoprefixer({overrideBrowserslist: ['last 10 versions'], grid: true}))
+        // .pipe(cleancss({level: {1: {specialComments: 0}}}))
         .pipe(dest(paths.styles.dest))
         .pipe(browserSync.stream())
 }
@@ -103,4 +95,3 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.svgs = svgs;
 exports.default = parallel(styles, scripts, browsersync, startwatch);
-exports.build = parallel(styles, production_scripts, browsersync, startwatch);

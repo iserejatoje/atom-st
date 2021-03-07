@@ -1,0 +1,339 @@
+@import "variables";
+@import "mixins";
+
+.project-page {
+
+  counter-reset: project;
+
+  .project-single {
+    position: relative;
+    @include respond(1366px) {
+      min-height: 632px;
+    }
+    text-align: center;
+  }
+
+  .project-single_image {
+    max-width: 1260px;
+    width: 100%;
+
+    @include respond(1366px) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      box-shadow: 20px 27px 36px 12px rgba(0, 0, 0, .25%);
+    }
+
+    @include respond(0, 1366px) {
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      right: 15px;
+      box-shadow: 20px 27px 36px 12px rgba(0, 0, 0, .1%);
+
+    }
+
+    margin: auto;
+  }
+
+  .project-single_overlay {
+    object-fit: cover;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    @include respond(0, 1366px) {
+      display: none;
+    }
+  }
+
+  .project-top {
+    display: flex;
+
+    @include respond(910px) {
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    @include respond(0, 910px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+  }
+
+  .project-info {
+    @include respond(980px) {
+      padding: 128px 0;
+    }
+    @include respond(0, 980px) {
+      padding: 50px 0;
+    }
+  }
+  
+  .project-grid {
+    @include respond(980px) {
+      transform: translateY(-320px);
+    }
+
+    picture {
+      display: block;
+    }
+    @include respond(890px) {
+      display: flex;
+      justify-content: space-between;
+      .column {
+        width: calc(50% - 35px);
+      }
+    }
+    .column {
+      @include respond(980px) {
+        margin-bottom: -240px;
+      }
+    }
+    .column:last-child {
+      padding-top: 120px;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin-bottom: 70px;
+    }
+
+
+  }
+
+  .project-slider_block {
+    @include respond(890px) {
+      padding: 115px 0;
+    }
+    @include respond(0, 890px) {
+      padding: 50px 0 0 0;
+    }
+  }
+
+  .project-slider {
+    padding-top: 35px;
+  }
+
+  .project-info--medium {
+    @include respond(980px) {
+      padding: 85px 0;
+    }
+    @include respond(0, 980px) {
+      padding: 40px 0;
+    }
+  }
+
+  .project-info_table {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+
+      @include respond(980px) {
+        display: flex;
+      }
+
+      .column:first-child {
+
+        b {
+          font-size: 27px;
+          font-family: "TT Norms", sans-serif;
+          color: $dark-shade;
+          line-height: 1.926;
+        }
+
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 42px;
+      }
+    }
+
+    .project-permalink {
+      margin-top: 40px;
+      letter-spacing: 0.5px;
+      svg {
+        transform: translateY(1px);
+        margin-left: 7px;
+        fill: $red;
+      }
+      a {
+        color: $dark-shade;
+        text-decoration: none;
+        font-size: 21px;
+        font-weight: 500;
+      }
+    }
+
+    .text {
+      font-size: 21px;
+      font-family: "TT Norms", sans-serif;
+      color: $dark-shade;
+      line-height: 1.524;
+      letter-spacing: .2px;
+      padding-top: 12px;
+      flex: 1;
+
+      p {
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &:not(:first-child) {
+          margin-top: 30px;
+        }
+      }
+
+      ul,
+      ol {
+        padding: 0;
+        margin-top: 30px;
+      }
+
+      li {
+        font-size: 18px;
+        list-style: none;
+        position: relative;
+        padding-left: 42px;
+        counter-increment: project;
+        &:not(:last-child) {
+          margin-block: 24px;
+        }
+        &:not(:nth-child(10n)) {
+          &:before {
+            content: "0" counter(project);
+          }
+        }
+        &:nth-child(10n) {
+          &:before {
+            content: counter(project);
+          }
+        }
+        &:before {
+          left: 0;
+          font-size: 20px;
+          font-weight: bold;
+          color: $red;
+          position: absolute;
+        }
+      }
+    }
+
+    .column {
+      &:first-child {
+        max-width: 325px;
+        width: 100%;
+      }
+    }
+  }
+
+  .project-layer {
+    @include respond(890px) {
+      padding-top: 45px;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .link-hand {
+    margin-top: 25px;
+  }
+
+  .project-screenshots {
+
+    @include respond(980px) {
+      background: #f2f3f5;
+      margin-top: 320px;
+    }
+  }
+
+  .page-description {
+    margin-top: 24px;
+    letter-spacing: 0.2px;
+    max-width: 470px;
+  }
+
+}
+
+.project-slider_wrap {
+
+  @include respond(940px) {
+    min-height: 442px;
+  }
+
+  .project-slider {
+    &_item {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 0.2px;
+
+      &:hover {
+        .project-image_wrap {
+          .project-image {
+            transform: scale(1.22);
+          }
+        }
+        .title {
+          color: $blue;
+        }
+      }
+
+      .project-image_wrap {
+        height: 235px;
+        overflow: hidden;
+        transition: transform 400ms linear;
+        .project-image {
+          position: relative;
+          background-size: cover;
+          background-position: center;
+          z-index: -1;
+          height: 100%;
+          background-repeat: no-repeat;
+          transition: transform 550ms ease;
+        }
+      }
+
+      .category {
+        font-weight: 500;
+
+        a {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+      .date {
+        font-size: 18px;
+        color: $blue;
+        margin-top: 35px;
+        line-height: 1.4;
+      }
+      .title {
+        font-size: 27px;
+        margin-top: 12px;
+        color: $dark-shade;
+        font-weight: bold;
+        line-height: 1.4;
+        transition: color 300ms ease;
+        text-decoration: none;
+      }
+      .description {
+        font-size: 18px;
+        color: $dark-shade;
+        line-height: 1.667;
+        margin-top: 6px;
+      }
+
+      img {
+        max-width: 373px;
+        display: block;
+      }
+    }
+  }
+}
